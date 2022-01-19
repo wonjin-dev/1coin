@@ -1,5 +1,9 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import styled from "styled-components";
 import {useQuery} from "react-query";
+import {IoIosArrowDropleftCircle} from 'react-icons/io';
+import {COLORS} from "../constants/colors";
+import {STRINGS} from "../constants/ko";
 import {CoinDetailsSchema} from "../api/schema/coinDetails";
 import {CoinTickerSchema} from "../api/schema/coinTicker";
 import {getCoinDetails, getCoinTickers} from "../api/coin";
@@ -23,26 +27,71 @@ const Coin = () => {
     <>
       {loading
         ? (<span>Loading...</span>)
-        : (<>
-          <div>
-            <span>Rank:</span>
-            <span>{infoData?.rank}</span>
-          </div>
-          <div>
-            <span>Symbol:</span>
-            <span>${infoData?.symbol}</span>
-          </div>
-          <div>
-            <span>Price:</span>
-            <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
-          </div>
-          <div>
-            <p>{infoData?.description}</p>
-          </div>
-        </>)
+        : (<Container>
+            <Header>
+              <BackBtnContainer><Link to="/coins"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>
+              <Title>{infoData?.name}</Title>
+            </Header>
+          <DetailsCotainer>
+            <Details>
+              <span>{STRINGS.rank}</span>
+              <span>{infoData?.rank}</span>
+            </Details>
+            <Details>
+              <span>{STRINGS.price}</span>
+              <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
+            </Details>
+          </DetailsCotainer>
+          <DetailsCotainer>
+            <Description>{infoData?.description}</Description>
+          </DetailsCotainer>
+        </Container>)
       }
     </>
   );
 }
 
 export default Coin;
+
+const Container = styled.div`
+  max-width: 480px;
+  margin: 0 auto;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%
+`;
+
+const BackBtnContainer = styled.div`
+    margin: 10px 50px 0px 0px;
+    font-size: 48px;
+    color: ${COLORS.mainTextColor};
+`;
+
+const Title = styled.h1`
+  font-size: 48px;
+  color: ${COLORS.mainTextColor};
+`;
+
+const DetailsCotainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin: 30px 0px;
+  background-color: ${COLORS.innerBackgroundColor};
+  border-radius: 10px;
+`;
+
+const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+`;
+
+const Description = styled.p`
+  margin: 20px 0px;
+`;

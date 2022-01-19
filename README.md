@@ -13,9 +13,13 @@
 
 ## _Schedule_
 
+***01/20***
+1. Coin 컴포넌트 개발
+> Coins에서 넘겨받은 state로 필요한 데이터를 API로 받아온 후,<br>API로 부터 해당 코인의 상세 데이터를 가져와서 구현(Coin 컴포넌트 구현에 필요한)
+
 ***01/19***
 1. 개발 환경 설정
 >\- TypeScript<br>- Styled-Components<br>- React-Query
-2. API로부터 코인 리스트 받아오기
-3. Coins 컴포넌트 만들기
-> CoinCard 컴포넌트를 만들어 UI를 구현하고, props로 데이터를 매핑
+2. Coins 컴포넌트 개발
+> API로부터 코인 리스트에 필요한 데이터를 받아온 후,<br>CoinCard 컴포넌트를 만들어 UI를 구현
+3. `Link to State`를 통해 Coin 컴포넌트에 필요한 데이터 매핑
