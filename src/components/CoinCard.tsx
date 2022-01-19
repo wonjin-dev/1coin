@@ -13,7 +13,7 @@ const CoinCard = (props: Props) => {
     <ul>
       <Coin>
         <Link to={{
-          pathname: `/coins/${props.coinId}`,
+          pathname: `/${props.coinId}`,
           state: {name: props.coinName}
         }}>
           <CoinThumbnail src={`https://cryptoicon-api.vercel.app/api/icon/${props.coinSymbol.toLowerCase()}`} />
