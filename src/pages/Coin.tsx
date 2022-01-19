@@ -52,8 +52,7 @@ const Coin = () => {
             </Tab>
           <Switch>
             <Route path={`/:coinId/chart`}>
-              <p>해당 차트</p>
-              <Chart />
+              <Chart coinId={coinId} />
             </Route>
           </Switch>
         </Container>)

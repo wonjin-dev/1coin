@@ -18,3 +18,11 @@ export const getCoinTickers = async(coinId: string) => {
   let {data} = await axios.get(url);
   return data;
 }
+
+export const getCoinChartData = async(coinId: string) => {
+  const endDate = Math.floor(Date.now() / 1000);
+  const startDate = endDate - 60 * 60 * 24 * 7 * 4;
+  let url = `https://api.coinpaprika.com/v1/coins/${coinId}/ohlcv/historical?start=${startDate}&end=${endDate}`;
+  let {data} = await axios.get(url);
+  return data;
+}
