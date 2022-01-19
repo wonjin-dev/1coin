@@ -1,19 +1,35 @@
+import styled from "styled-components";
 import {useQuery} from "react-query";
+import {STRINGS} from "../constants/ko";
+import CoinCard from "../components/CoinCard";
 import {CoinListSchema} from "../api/schema/coinList";
-import {getCoinList} from "../api/coin";
+import {getCoinList} from "../api/coin";;
 
 const Coins = () => {
-  const {data} = useQuery<CoinListSchema[]>("Coins", getCoinList);
+  const {isLoading, data} = useQuery<CoinListSchema[]>("Coins", getCoinList);
   return (
-    <>
-      {data?.map((coin: CoinListSchema) => (
-        <div key={coin.id}>
-          <img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
-          {coin.name}
-        </div>
-      ))}
-    </>
+    <Container>
+      {isLoading
+        ? (<span>{STRINGS.loadCoinList}</span>)
+        : (<>
+          {data?.map((coin) => (
+            <CoinCard
+              key={coin.id}
+              coinId={coin.id}
+              coinName={coin.name}
+              coinSymbol={coin.symbol}
+            />
+          ))}
+        </>)
+      }
+    </Container>
   )
 }
-  
+
 export default Coins;
+
+const Container = styled.div`
+  padding: 0px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+`;
