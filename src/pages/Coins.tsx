@@ -1,35 +1,75 @@
+import {useState, useEffect, useCallback} from "react";
 import styled from "styled-components";
-import {useQuery} from "react-query";
-import {STRINGS} from "../constants/ko";
 import CoinCard from "../components/CoinCard";
 import {CoinListSchema} from "../api/schema/coinList";
-import {getCoinList} from "../api/coin";;
+import {getCoinList} from "../api/coin";
+let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
-  const {isLoading, data} = useQuery<CoinListSchema[]>("Coins", getCoinList);
+  const [target, setTarget] = useState<null | Element>(null);
+  const [fetchIndex, setIndex] = useState<number>(0);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);
+
+  const getMoreCoins = useCallback(async() => {
+  	setIsLoaded(true);
+  	if (!timer) {
+  	  timer = setTimeout(async() => {
+  	  	timer = null;
+  	  	const newList = await getCoinList(fetchIndex);
+  	  	setCoinList(coinList => [...coinList, ...newList]);
+  	  	setIndex(fetchIndex => fetchIndex + 10);
+  	  	setIsLoaded(false);
+  	  }, 200);
+  	}
+  }, [fetchIndex]);
+
+  useEffect(() => {
+    getMoreCoins();
+  }, []);
+
+  const onIntersect = async([entry]: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+  	if (entry.isIntersecting && !isLoaded) {
+  	  observer.unobserve(entry.target);
+  	  await getMoreCoins();
+  	  observer.observe(entry.target);
+  	}
+  };
+
+  useEffect(() => {
+  	let observer: IntersectionObserver;
+  	if (target) {
+  	  observer = new IntersectionObserver(onIntersect);
+  	  observer.observe(target);
+  	}
+  	return () => observer && observer.disconnect();
+  }, [target, onIntersect]);
+
   return (
-    <Container>
-      {isLoading
-        ? (<span>{STRINGS.loadCoinList}</span>)
-        : (<>
-          {data?.map((coin) => (
-            <CoinCard
-              key={coin.id}
-              coinId={coin.id}
-              coinName={coin.name}
-              coinSymbol={coin.symbol}
-            />
-          ))}
-        </>)
-      }
-    </Container>
-  )
-}
+	<>
+	  {coinList.length > 0 
+	    ? (<Container>
+	  	  {coinList.map((coin: CoinListSchema, i: number) => {
+	  	    return (
+	  	      <CoinCard
+	  	        key={i}
+	  	        coinId={coin.id}
+	  	        coinName={coin.name}
+	  	        coinSymbol={coin.symbol}
+	  	      />
+	  	    );
+	  	  })}
+	  	</Container>)
+		: (<span>Loading . . .</span>)
+ 	  }
+	  <div ref={setTarget}>{isLoaded && <span>Loader . . .</span>}</div>
+	</>
+  );
+};
 
 export default Coins;
 
 const Container = styled.div`
-  padding: 0px 20px;
   max-width: 480px;
   margin: 0 auto;
 `;
