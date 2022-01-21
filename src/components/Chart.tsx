@@ -16,7 +16,7 @@ const Chart = (props: Props) => {
   return (
     <>
       {isLoading
-        ? (<p>Loading . . .</p>)
+        ? (<p>spin loading</p>)
         : (<ApexChart
           type="candlestick"
           series={[

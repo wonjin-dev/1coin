@@ -7,6 +7,7 @@ import {STRINGS} from "../constants/ko";
 import {CoinDetailsSchema} from "../api/schema/coinDetails";
 import {CoinTickerSchema} from "../api/schema/coinTicker";
 import {getCoinDetails, getCoinTickers} from "../api/coin";
+import Loader from "../components/Loader";
 import Chart from "../components/Chart";
 
 interface RouteParams {
@@ -28,7 +29,7 @@ const Coin = () => {
   return (
     <>
       {loading
-        ? (<span>Loading...</span>)
+        ? (<Loader type ='page' text={STRINGS.loadCoinDetails} />)
         : (<Container>
             <Header>
               <BackBtnContainer><Link to="/"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>

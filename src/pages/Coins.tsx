@@ -1,8 +1,10 @@
 import {useState, useEffect, useCallback} from "react";
 import styled from "styled-components";
+import {STRINGS} from "../constants/ko";
 import CoinCard from "../components/CoinCard";
 import {CoinListSchema} from "../api/schema/coinList";
 import {getCoinList} from "../api/coin";
+import Loader from "../components/Loader";
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
@@ -60,9 +62,9 @@ const Coins = () => {
 	  	    );
 	  	  })}
 	  	</Container>)
-		: (<span>Loading . . .</span>)
+		: (<Loader type={"page"} text={STRINGS.loadCoinList} />)
  	  }
-	  <div ref={setTarget}>{isLoaded && <span>Loader . . .</span>}</div>
+	  <div ref={setTarget}>{isLoaded && <span>spin loading</span>}</div>
 	</>
   );
 };
