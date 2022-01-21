@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {COLORS} from "../constants/colors";
 
 type LoaderType = 'spin' | 'page';
 interface Props {
   type: LoaderType;
   text?: string;
+  img?: string;
 }
 
 const Loader = (props: Props) => {
@@ -12,11 +13,11 @@ const Loader = (props: Props) => {
     <>
       {props.type === 'spin' ? (
         <ChartLoader>
-          <p>spin loading</p>
+          <ImageInLoader src={props.img} />
         </ChartLoader>
       ) : ( 
         <DefaultLoader>
-          <LoaderContent>{props.text}</LoaderContent>
+          <TextInLoader>{props.text}</TextInLoader>
         </DefaultLoader>)
       }
     </>
@@ -41,6 +42,25 @@ const ChartLoader = styled.div`
   font-size: 20px;
 `
 
-const LoaderContent = styled.span`
+const TextInLoader = styled.span`
   color: ${COLORS.mainTextColor}
+`
+
+const spinAnimation = keyframes`
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+`
+
+const ImageInLoader = styled.img`
+  width: 50px;
+  height: 50px;
+  animation: ${spinAnimation} 1s linear infinite; 
 `
