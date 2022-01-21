@@ -1,7 +1,9 @@
 import {useQuery} from "react-query";
 import ApexChart from "react-apexcharts";
+import {IMAGES} from "../constants/images";
 import {CoinChartSchema} from "../api/schema/coinChart";
 import {getCoinChartData} from "../api/coin";
+import Loader from "./Loader";
 
 interface Props {
   coinId: string;
@@ -16,7 +18,7 @@ const Chart = (props: Props) => {
   return (
     <>
       {isLoading
-        ? (<p>Loading . . .</p>)
+        ? (<Loader type="spin" img={IMAGES.coin} />)
         : (<ApexChart
           type="candlestick"
           series={[
