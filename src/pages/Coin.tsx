@@ -49,10 +49,10 @@ const Coin = () => {
             <Description>{infoData?.description}</Description>
           </DetailsCotainer>
           <Tab isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>{STRINGS.seeChart}</Link>
+              <Link to={`/coins/${coinId}/chart`}>{STRINGS.seeChart}</Link>
             </Tab>
           <Switch>
-            <Route path={`/:coinId/chart`}>
+            <Route path={`/coins/:coinId/chart`}>
               <Chart coinId={coinId} />
             </Route>
           </Switch>
