@@ -2,6 +2,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Coins from "./pages/Coins";
 import Coin from "./pages/Coin";
 import Landing from "./pages/Lading";
+import {STRINGS} from "./constants/ko";
 
 const Router = () => {
   return (
@@ -14,7 +15,7 @@ const Router = () => {
           <Coins />
         </Route>
         <Route path="/">
-          <Landing />
+          <Landing title={STRINGS.pjName} />
         </Route>
       </Switch>
     </BrowserRouter>
