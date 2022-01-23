@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 import {COLORS} from "../constants/colors";
-import {TiArrowRightThick} from "react-icons/ti";
+import {IMAGES} from "../constants/images";
 
 interface Props {
   title: string;
@@ -26,26 +26,63 @@ const Landing = (props: Props) => {
 
   return (
     <>
-      <Header>
-        <Title>{text}</Title>
-      </Header>
       <Link to={"/coins"}>
-        <TiArrowRightThick />
-      </Link>
+      <MainContainer>
+        <BackgroundImage>
+          <Img src={IMAGES.LandignBackImg} />
+          <Cover />
+          <TitleContainer>
+            <Title>{text}</Title>
+          </TitleContainer>
+        </BackgroundImage>
+      </MainContainer>
+    </Link>
     </>
   )
 }
 
 export default Landing;
 
-const Header = styled.header`
+const MainContainer = styled.div`
   display: flex;
+  position: relative;
+  justify-content: center;
+  width: 90%;
+  height: 90vh;
+`;
+
+const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const Img = styled.img`
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+`;
+
+const Cover = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 48, 71, 0.55);
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+  margin-left: 20px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 
 const Title = styled.h1`
-  font-size: 160px;
-  font-weight: 500;
+  font-size: 200px;
   color: ${COLORS.mainTextColor};
+  margin-left: 25px;
 `;
