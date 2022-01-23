@@ -1,16 +1,21 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Coins from "./pages/Coins";
 import Coin from "./pages/Coin";
+import Landing from "./pages/Lading";
+import {STRINGS} from "./constants/ko";
 
 const Router = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route path="/:coinId">
+        <Route path="/coins/:coinId">
           <Coin />
         </Route>
-        <Route path="/">
+        <Route path="/coins">
           <Coins />
+        </Route>
+        <Route path="/">
+          <Landing title={STRINGS.pjName} />
         </Route>
       </Switch>
     </BrowserRouter>

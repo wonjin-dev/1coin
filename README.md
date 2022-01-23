@@ -2,9 +2,12 @@
 
 ## _Get Started_
 
-Typing `npm i || yarn` in terminal. then typing `npm start || yarn start` in terminal again
+***on Github***
+- 우측에 있는 `github-pages`를 클릭한 후,<br>`View deployment`를 클릭하여 프로젝트를 실행하실 수 있습니다
 
-<br>
+***local***
+1. 터미널에 명령어 `npm i || yarn` 입력하여 프로젝트를 설치합니다<br>
+2. 설치 후에 명령어 `npm start || yarn start` 를 터미널에 입력하여 프로젝트를 실행하실 수 있습니다<br>
 
 ## _Tech Stack_
 
@@ -20,30 +23,35 @@ Typing `npm i || yarn` in terminal. then typing `npm start || yarn start` in ter
 
 ## _Schedule_
 
+***`22/01/23`***
+***1. Landing 페이지 개발 # 1***
+> 1. 라우터 변경
+<br>
+
 ***`22/01/22`***
-1. Loader 컴포넌트 개발
-> 모듈을 사용하여 inidicator를 Loader 컴포넌트로 사용하려다가,<br>animation을 이용하여 직접 구현
+***1. Loader 컴포넌트 개발***
+> 모듈을 사용하여 inidicator를 Loader 컴포넌트로 사용하려다가,<br>animation을 이용하여 직접 구현.<br>page || spin 타입을 선택하여 사용할 수 있게 만듬
 <br>
 
 ***`22/01/21`***
-1. 무한 스크롤 구현
+***1. 무한 스크롤 구현***
 > API에서 지정된 개수만큼 가져와서 첫 렌더링 이후로는 Observer를 이용하여 무한 스크롤을 구현<br>Throttling을 설정하여 Observer의 민감도에 관계 없이 요청 속도를 조절
 <br>
 
 ***`22/01/20`***
-1. Coin 페이지 구현
+***1. Coin 페이지 구현***
 > Coins에서 넘겨받은 state로 필요한 데이터를 API로 받아온 후,<br>API로 통해 클릭된 코인의 상세 데이터를 가져와서 구현(Coin 컴포넌트 구현에 필요한)
-2. Chart 컴포넌트 개발
+***2. Chart 컴포넌트 개발***
 > API를 통해 필요한 데이터를 받아온 후, <br>react-ApexChart를 이용하여 차트 구현
-3. Gh-pages를 이용하여 배포
+***3. Gh-pages를 이용하여 배포***
 <br>
 
 ***`22/01/19`***
-1. 개발 환경 설정
+***1. 개발 환경 설정***
 >\- TypeScript<br>- Styled-Components<br>- React-Query
-2. Coins 페이지 구현
+***2. Coins 페이지 구현***
 > API로부터 코인 리스트에 필요한 데이터를 받아온 후,<br>CoinCard 컴포넌트를 만들어 UI를 구현
-3. `Link to State`를 통해 Coin 컴포넌트에 필요한 데이터 매핑
+***3. `Link to State`를 통해 Coin 컴포넌트에 필요한 데이터 매핑***
 
 <hr>
 
