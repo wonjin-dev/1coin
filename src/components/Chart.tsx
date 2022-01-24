@@ -26,7 +26,7 @@ const Chart = (props: Props) => {
               name: "Price",
               data: data?.map((price) => ({
                 x: price.time_close,
-                y: [price.open, price.high, price.low, price.close]
+                y: [price.open.toFixed(2), price.high.toFixed(2), price.low.toFixed(2), price.close.toFixed(2)]
               })),
             },
           ]}
