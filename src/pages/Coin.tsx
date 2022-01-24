@@ -46,7 +46,13 @@ const Coin = () => {
             </Details>
           </DetailsCotainer>
           <DetailsCotainer>
-            <Description>{infoData?.description}</Description>
+          <Description>
+            {infoData?.description
+              ? infoData?.description.length > 300 
+                ? `${infoData?.description.slice(0, 300)}  . . .`
+                : infoData?.description 
+              : null}
+          </Description>
           </DetailsCotainer>
           <Tab isActive={chartMatch !== null}>
               <Link to={`/coins/${coinId}/chart`}>{STRINGS.seeChart}</Link>
