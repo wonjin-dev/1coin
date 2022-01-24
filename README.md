@@ -3,7 +3,7 @@
 ## _Get Started_
 
 ***on Github***
-- 우측에 있는 `github-pages`를 클릭한 후,<br>`View deployment`를 클릭하여 프로젝트를 실행하실 수 있습니다
+> 우측에 있는 `github-pages`를 클릭한 후,<br>`View deployment`를 클릭하여 프로젝트를 실행하실 수 있습니다
 
 ***local***
 1. 터미널에 명령어 `npm i || yarn` 입력하여 프로젝트를 설치합니다<br>
@@ -23,6 +23,12 @@
 
 ## _Schedule_
 
+***`22/01/25`***<br>
+***1. Chart 컴포넌트 툴팁 값 소수점 둘째자리로 고정***
+
+***2. Coin 컴포넌트 코인의 설명이 길면 자르는 로직 추가***
+<br>
+
 ***`22/01/24`***<br>
 ***1. Landing 페이지 개발***
 > 어떤 배경 이미지든 채도 및 명도를 낮추어 보여주는 스타일을 생성
@@ -30,7 +36,7 @@
 
 ***`22/01/23`***<br>
 ***1. Landing 페이지 개발 #1***
-> 1. 라우터 변경<br>2. Title animation 개발
+> \- 라우터 변경<br> - Title animation 개발
 <br>
 
 ***`22/01/22`***<br>
@@ -54,8 +60,10 @@
 ***`22/01/19`***<br>
 ***1. 개발 환경 설정***
 >\- TypeScript<br>- Styled-Components<br>- React-Query
+
 ***2. Coins 페이지 구현***
 > API로부터 코인 리스트에 필요한 데이터를 받아온 후,<br>CoinCard 컴포넌트를 만들어 UI를 구현
+
 ***3. `Link to State`를 통해 Coin 컴포넌트에 필요한 데이터 매핑***
 
 <hr>
