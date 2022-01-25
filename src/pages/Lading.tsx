@@ -25,64 +25,33 @@ const Landing = (props: Props) => {
   });
 
   return (
-    <>
-      <Link to={"/coins"}>
-      <MainContainer>
+    <Link to={"/coins"}>
         <BackgroundImage>
-          <Img src={IMAGES.LandignBackImg} />
-          <Cover />
-          <TitleContainer>
+          <Header>
             <Title>{text}</Title>
-          </TitleContainer>
+          </Header>
         </BackgroundImage>
-      </MainContainer>
     </Link>
-    </>
   )
 }
 
 export default Landing;
 
-const MainContainer = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  width: 90%;
-  height: 90vh;
-`;
-
 const BackgroundImage = styled.div`
-  width: 100%;
-  height: 100%;
+  background-image: url(${IMAGES.LandignBackImg});
+  width: 100vw;
+  height: 100vh;
 `;
 
-const Img = styled.img`
-  position: fixed;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-`;
-
-const Cover = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(41, 48, 71, 0.55);
-`;
-
-const TitleContainer = styled.div`
+const Header = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 const Title = styled.h1`
-  font-size: 200px;
+  font-size: 8rem;
   color: ${COLORS.mainTextColor};
-  margin-left: 25px;
 `;
