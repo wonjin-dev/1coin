@@ -23,6 +23,16 @@
 
 ## _Schedule_
 
+***`22/01/26`***<br>
+***1. Landing 페이지 모바일 해상도 조정 및 여러 디바이스를 위한 css 변경***
+
+***2. Coins 페이지 모바일 해상도 조정 및 여러 디바이스를 위한 css 변경***
+
+***3. CoinCard 컴포넌트 디자인 변경***
+
+***4. Coin 페이지 Header 추가***
+<br>
+
 ***`22/01/25`***<br>
 ***1. Chart 컴포넌트 툴팁 값 소수점 둘째자리로 고정***
 
@@ -86,3 +96,11 @@ TypeError: MiniCssExtractPlugin is not a constructor
 ***3. 무한 스크롤 반복 배열 오류***
 > CAUSE: Observer를 통한 무한 스크롤 구현에서, Observer의 민감도 때문에 데이터 페칭이 끝나기 전에 API를 재호출 하여, 순서에 맞지 않는 반복된 데이터를 가져오는 오류가 발생했다<br>
 > SOLUTION: timer를 설정하여 Throttling을 설정하여 해결했다
+
+<hr>
+
+## _이 후 프로젝트에서는 . . ._
+
+- Next.js를 이용해 SSR도 추가하여 개발해보자
+- Skeleton UI를 이용해 Loader 컴포넌트를 만들어 보자
+- 미디어 쿼리를 이용해 디바이스 해상도에 맞는 반응형 웹으로 디자인 해보자
