@@ -11,15 +11,17 @@ interface Props {
 const CoinCard = (props: Props) => {
   return (
     <ul>
-      <Coin>
-        <Link to={{
-          pathname: `/coins/${props.coinId}`,
-          state: {name: props.coinName}
-        }}>
+      <Link to={{
+        pathname: `/coins/${props.coinId}`,
+        state: {name: props.coinName}
+      }}>
+        <Coin>
           <CoinThumbnail src={`https://cryptoicon-api.vercel.app/api/icon/${props.coinSymbol.toLowerCase()}`} />
-          {props.coinName}
-        </Link>
-      </Coin>
+          <CoinInfo>
+            {props.coinName}
+          </CoinInfo>
+        </Coin>
+      </Link>
     </ul>
   )
 }
@@ -27,19 +29,23 @@ const CoinCard = (props: Props) => {
 export default CoinCard;
 
 const Coin = styled.li`
-  background-color: white;
-  color: ${COLORS.mainBackgroundColor};
-  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
   margin-bottom: 10px;
-  a {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-  }
+  background-color: inherit;
+  color: ${COLORS.mainTextColor};
+  border: 1px solid;
+  border-color: ${COLORS.mainTextColor};
+  border-radius: 15px;
 `;
 
 const CoinThumbnail = styled.img`
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 `;
+
+const CoinInfo = styled.h1`
+  font-size: 19px;
+`

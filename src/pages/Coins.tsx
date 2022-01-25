@@ -6,6 +6,7 @@ import CoinCard from "../components/CoinCard";
 import {CoinListSchema} from "../api/schema/coinList";
 import {getCoinList} from "../api/coin";
 import Loader from "../components/Loader";
+import { COLORS } from "../constants/colors";
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
@@ -52,6 +53,9 @@ const Coins = () => {
 	<>
 	  {coinList.length > 0 
 	    ? (<Container>
+		  <Header>
+			<Intro>{STRINGS.pjTitle}</Intro>
+		  </Header>
 	  	  {coinList.map((coin: CoinListSchema, i: number) => {
 	  	    return (
 	  	      <CoinCard
@@ -76,3 +80,12 @@ const Container = styled.div`
   max-width: 480px;
   margin: 0 auto;
 `;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+`
+const Intro = styled.h1`
+  color: ${COLORS.mainTextColor};
+`
