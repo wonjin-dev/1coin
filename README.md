@@ -23,6 +23,26 @@
 
 ## _Schedule_
 
+***`22/01/27`***<br>
+***1. 코드 포매팅***
+> lint를 사용하지 않은 프로젝트이기도 하고, css 작성의 경우 규칙을 만들면 코드의 가독성이 좋아질것으로 기대된다
+
+```
+/** css formatting **/
+
+display
+justify-content
+align-items
+size styles (width, height . . .)
+space styles (margin, padding . . .)
+background styles
+border stlyes
+font styles
+color styles
+animations
+```
+<br>
+
 ***`22/01/26`***<br>
 ***1. Landing 페이지 모바일 해상도 조정 및 여러 디바이스를 위한 css 변경***
 
