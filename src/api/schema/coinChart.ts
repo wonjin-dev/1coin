@@ -1,7 +1,7 @@
 export interface CoinChartSchema {
-  time_close: string;
   open: number;
+  close: number;
+  time_close: string;
   high: number;
   low: number;
-  close: number;
 }

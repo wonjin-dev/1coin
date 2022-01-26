@@ -1,11 +1,11 @@
 import {useState, useEffect, useCallback} from "react";
 import styled from "styled-components";
-import {STRINGS} from "../constants/ko";
 import {COLORS} from "../constants/colors";
+import {STRINGS} from "../constants/ko";
 import {IMAGES} from "../constants/images";
-import CoinCard from "../components/CoinCard";
 import {CoinListSchema} from "../api/schema/coinList";
 import {getCoinList} from "../api/coin";
+import CoinCard from "../components/CoinCard";
 import Loader from "../components/Loader";
 let timer: NodeJS.Timeout | null;
 

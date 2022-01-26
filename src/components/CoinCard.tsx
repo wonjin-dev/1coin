@@ -31,13 +31,13 @@ export default CoinCard;
 const Coin = styled.li`
   display: flex;
   align-items: center;
-  padding: 30px;
   margin-bottom: 10px;
+  padding: 30px;
   background-color: inherit;
-  color: ${COLORS.mainTextColor};
   border: 1px solid;
   border-color: ${COLORS.mainTextColor};
   border-radius: 15px;
+  color: ${COLORS.mainTextColor};
 `;
 
 const CoinThumbnail = styled.img`
