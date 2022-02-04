@@ -32,7 +32,7 @@ const Coin = () => {
         ? (<Loader type ='page' text={STRINGS.loadCoinDetails} />)
         : (<Container>
             <Header>
-              <BackBtnContainer><Link to="/"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>
+              <BackBtnContainer><Link to="/coins"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>
               <Title>{infoData?.name}</Title>
             </Header>
           <DetailsCotainer>
