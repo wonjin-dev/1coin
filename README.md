@@ -123,4 +123,4 @@ TypeError: MiniCssExtractPlugin is not a constructor
 
 - Next.js를 이용해 SSR도 추가하여 개발해보자
 - Skeleton UI를 이용해 Loader 컴포넌트를 만들어 보자
-- 미디어 쿼리를 이용해 디바이스 해상도에 맞는 반응형 웹으로 디자인 해보자
+- 미디어 쿼리를 이용해 디바이스 해상도에 맞는 반응형 웹으로 디자인 해보자.
