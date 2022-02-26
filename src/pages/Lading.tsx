@@ -38,7 +38,7 @@ const Landing = (props: Props) => {
 export default Landing;
 
 const BackgroundImage = styled.div`
-  background-image: url(${IMAGES.LandignBackImg});
+  background-image: url(${IMAGES.landignBackImg});
   width: 100vw;
   height: 100vh;
 `;

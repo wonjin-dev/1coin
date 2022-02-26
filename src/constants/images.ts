@@ -1,4 +1,4 @@
 export const IMAGES = {
-  LandignBackImg: require("../assets/landingBackground.png"),
+  landignBackImg: require("../assets/landingBackground.png"),
   coin: require("../assets/coin.png")
 }
