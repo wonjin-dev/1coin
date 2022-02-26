@@ -1,9 +1,9 @@
-import {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
-import styled from "styled-components";
-import {COLORS} from "../constants/colors";
-import {IMAGES} from "../constants/images";
-import {LandingPageProps} from "../types";
+import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+import {COLORS} from '../constants/colors';
+import {IMAGES} from '../constants/images';
+import {LandingPageProps} from '../types';
 
 const Landing = (props: LandingPageProps) => {
   const title = props.title;
@@ -22,12 +22,12 @@ const Landing = (props: LandingPageProps) => {
   });
 
   return (
-    <Link to={"/coins"}>
-        <BackgroundImage>
-          <Header>
-            <Title>{text}</Title>
-          </Header>
-        </BackgroundImage>
+    <Link to={'/coins'}>
+      <BackgroundImage>
+        <Header>
+          <Title>{text}</Title>
+        </Header>
+      </BackgroundImage>
     </Link>
   )
 }

@@ -1,20 +1,20 @@
-import {Link, Switch, Route, useParams, useRouteMatch} from "react-router-dom";
-import styled from "styled-components";
-import {useQuery} from "react-query";
+import {Link, Switch, Route, useParams, useRouteMatch} from 'react-router-dom';
+import styled from 'styled-components';
+import {useQuery} from 'react-query';
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
-import {COLORS} from "../constants/colors";
-import {STRINGS} from "../constants/ko";
-import {CoinDetailsSchema, CoinTickerSchema} from "../api/schema/coinSchema";
-import {getCoinDetails, getCoinTickers} from "../api/coin";
-import {CoinPageRouteParams} from "../types";
-import Loader from "../components/Loader";
-import Chart from "../components/Chart";
+import {COLORS} from '../constants/colors';
+import {STRINGS} from '../constants/ko';
+import {CoinDetailsSchema, CoinTickerSchema} from '../api/schema/coinSchema';
+import {getCoinDetails, getCoinTickers} from '../api/coin';
+import {CoinPageRouteParams} from '../types';
+import Loader from '../components/Loader';
+import Chart from '../components/Chart';
 
 const Coin = () => {
   const {coinId} = useParams<CoinPageRouteParams>();
-  const chartMatch = useRouteMatch("/:coinId/chart");
+  const chartMatch = useRouteMatch('/:coinId/chart');
   const {isLoading: infoLoading, data: infoData} = useQuery<CoinDetailsSchema>(
-    ["details", coinId],
+    ['details', coinId],
     () => getCoinDetails(coinId),
     {
       cacheTime: 3600000,
@@ -23,7 +23,7 @@ const Coin = () => {
   );
 
   const {isLoading: tickersLoading, data: tickersData} = useQuery<CoinTickerSchema>(
-    ["tickers", coinId], () => getCoinTickers(coinId),
+    ['tickers', coinId], () => getCoinTickers(coinId),
     {
       cacheTime: 3600000,
       staleTime: 3600000
@@ -75,7 +75,7 @@ const Coin = () => {
               </Link>
             </Tab>
             <Switch>
-              <Route path={`/coins/:coinId/chart`}>
+              <Route path={'/coins/:coinId/chart'}>
                 <Chart coinId={coinId} />
               </Route>
             </Switch>

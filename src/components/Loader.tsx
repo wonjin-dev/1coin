@@ -1,15 +1,15 @@
-import styled, {keyframes} from "styled-components";
-import {COLORS} from "../constants/colors";
-import {LoaderProps} from "../types";
+import styled, {keyframes} from 'styled-components';
+import {COLORS} from '../constants/colors';
+import {LoaderProps} from '../types';
 
 const Loader = (props: LoaderProps) => {
   return (
     <>
       {props.type === 'spin' 
         ? (
-        <ChartLoader>
-          <ImageInLoader src={props.img} />
-        </ChartLoader>
+          <ChartLoader>
+            <ImageInLoader src={props.img} />
+          </ChartLoader>
         ) 
         : (
           <DefaultLoader>

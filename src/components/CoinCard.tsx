@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
-import styled from "styled-components";
-import {COLORS} from "../constants/colors";
-import {CoinCardProps} from "../types";
+import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+import {COLORS} from '../constants/colors';
+import {CoinCardProps} from '../types';
 
 const CoinCard = (props: CoinCardProps) => {
   return (

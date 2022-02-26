@@ -1,12 +1,14 @@
-import {useState, useEffect, useCallback} from "react";
-import styled from "styled-components";
-import {COLORS} from "../constants/colors";
-import {STRINGS} from "../constants/ko";
-import {IMAGES} from "../constants/images";
-import {CoinListSchema} from "../api/schema/coinSchema";
-import {getCoinList} from "../api/coin";
-import CoinCard from "../components/CoinCard";
-import Loader from "../components/Loader";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-mixed-spaces-and-tabs */
+import {useState, useEffect, useCallback} from 'react';
+import styled from 'styled-components';
+import {COLORS} from '../constants/colors';
+import {STRINGS} from '../constants/ko';
+import {IMAGES} from '../constants/images';
+import {CoinListSchema} from '../api/schema/coinSchema';
+import {getCoinList} from '../api/coin';
+import CoinCard from '../components/CoinCard';
+import Loader from '../components/Loader';
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
@@ -50,7 +52,7 @@ const Coins = () => {
   }, [target, onIntersect]);
 
   return (
-	<>
+    <>
 	  {coinList.length > 0
 	    ? (
 		  <Container>
@@ -68,22 +70,22 @@ const Coins = () => {
 	  	      );
 	  	    })}
 	  	  </Container>
-		)
-		: (
+        )
+        : (
 		  <Loader
-		    type={"page"}
-			text={STRINGS.loadCoinList}
+		    type={'page'}
+            text={STRINGS.loadCoinList}
 		  />
-		)
+        )
  	  }
 	  <div ref={setTarget}>
-		{isLoaded && 
+        {isLoaded && 
 		  <Loader
 		    type="spin"
-			img={IMAGES.coin}
+		    img={IMAGES.coin}
 		  />}
 	  </div>
-	</>
+    </>
   );
 };
 
