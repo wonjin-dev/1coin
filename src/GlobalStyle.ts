@@ -1,11 +1,5 @@
 import {createGlobalStyle} from "styled-components";
-import {DefaultTheme} from "styled-components";
 import {COLORS} from "./constants/colors";
-
-export const defaultTheme: DefaultTheme = {
-  backgroundColor: COLORS.mainBackgroundColor,
-  textColor: COLORS.mainTextColor
-}
 
 export const GlobalStyle = createGlobalStyle`
   html, body, div, span, h1, ul, img {
