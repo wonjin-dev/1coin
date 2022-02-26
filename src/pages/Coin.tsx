@@ -4,8 +4,7 @@ import {useQuery} from "react-query";
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
 import {COLORS} from "../constants/colors";
 import {STRINGS} from "../constants/ko";
-import {CoinDetailsSchema} from "../api/schema/coinDetails";
-import {CoinTickerSchema} from "../api/schema/coinTicker";
+import {CoinDetailsSchema, CoinTickerSchema} from "../api/schema/coinSchema";
 import {getCoinDetails, getCoinTickers} from "../api/coin";
 import Loader from "../components/Loader";
 import Chart from "../components/Chart";
@@ -48,9 +47,9 @@ const Coin = () => {
           <DetailsCotainer>
           <Description>
             {infoData?.description
-              ? infoData?.description.length > 300 
+              ? infoData?.description.length > 300
                 ? `${infoData?.description.slice(0, 300)}  . . .`
-                : infoData?.description 
+                : infoData?.description
               : null}
           </Description>
           </DetailsCotainer>

@@ -1,7 +1,7 @@
 import {useQuery} from "react-query";
 import ApexChart from "react-apexcharts";
 import {IMAGES} from "../constants/images";
-import {CoinChartSchema} from "../api/schema/coinChart";
+import {CoinChartSchema} from "../api/schema/coinSchema";
 import {getCoinChartData} from "../api/coin";
 import Loader from "./Loader";
 

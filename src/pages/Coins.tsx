@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {COLORS} from "../constants/colors";
 import {STRINGS} from "../constants/ko";
 import {IMAGES} from "../constants/images";
-import {CoinListSchema} from "../api/schema/coinList";
+import {CoinListSchema} from "../api/schema/coinSchema";
 import {getCoinList} from "../api/coin";
 import CoinCard from "../components/CoinCard";
 import Loader from "../components/Loader";
@@ -51,7 +51,7 @@ const Coins = () => {
 
   return (
 	<>
-	  {coinList.length > 0 
+	  {coinList.length > 0
 	    ? (<Container>
 		  <Header>
 			<Intro>{STRINGS.pjTitle}</Intro>
