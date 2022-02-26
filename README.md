@@ -35,15 +35,13 @@
 
 **_2. api schema && component interfaces 하나의 파일에 통합하여 작성_**
 
-**_3. stale time, chace time 설정 _**
+**_3. stale time, chace time 설정_**
 
 > 한 시간이 지나기 전에는 fresh 상태로 인식하여 리페치를 진행하지 않게 설정
 
 **_4. 코드 포매팅_**
 
-> 삼항 연산자 코드 포매팅 변경
-
-**_5. Lint설정_**
+> 삼항 연산자 코드 포매팅 변경 && Lint 설정
 
 <br>
 
@@ -89,25 +87,29 @@ animations
 **_1. Landing 페이지 개발_**
 
 > 어떤 배경 이미지든 채도 및 명도를 낮추어 보여주는 스타일을 생성
-> <br>
+
+<br>
 
 **_`22/01/23`_**<br>
 **_1. Landing 페이지 개발 #1_**
 
 > \- 라우터 변경<br> - Title animation 개발
-> <br>
+
+<br>
 
 **_`22/01/22`_**<br>
 **_1. Loader 컴포넌트 개발_**
 
 > 모듈을 사용하여 inidicator를 Loader 컴포넌트로 사용하려다가,<br>animation을 이용하여 직접 구현.<br>page || spin 타입을 선택하여 사용할 수 있게 만듬
-> <br>
+
+<br>
 
 **_`22/01/21`_**<br>
 **_1. 무한 스크롤 구현_**
 
 > API에서 지정된 개수만큼 가져와서 첫 렌더링 이후로는 Observer를 이용하여 무한 스크롤을 구현<br>timer를 통해 Throttling을 설정하여, Observer의 민감도에 관계 없이 요청 속도를 조절
-> <br>
+
+<br>
 
 **_`22/01/20`_**<br>
 **_1. Coin 페이지 구현_**
@@ -119,7 +121,7 @@ animations
 > API를 통해 필요한 데이터를 받아온 후, <br>react-ApexChart를 이용하여 차트 구현
 
 **_3. Gh-pages를 이용하여 배포_**
-<br>
+<br><br>
 
 **_`22/01/19`_**<br>
 **_1. 개발 환경 설정_**
