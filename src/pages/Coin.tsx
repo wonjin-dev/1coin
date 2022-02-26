@@ -13,20 +13,34 @@ import Chart from "../components/Chart";
 const Coin = () => {
   const {coinId} = useParams<CoinPageRouteParams>();
   const chartMatch = useRouteMatch("/:coinId/chart");
+  
   const {isLoading: infoLoading, data: infoData} = useQuery<CoinDetailsSchema>(
     ["details", coinId],
-    () => getCoinDetails(coinId)
+    () => getCoinDetails(coinId),
+    {
+      staleTime: 3600000
+    }
   );
+
   const {isLoading: tickersLoading, data: tickersData} = useQuery<CoinTickerSchema>(
     ["tickers", coinId],
-    () => getCoinTickers(coinId)
+    () => getCoinTickers(coinId),
+    {
+      staleTime: 3600000
+    }
   );
   const loading = infoLoading || tickersLoading;
   return (
     <>
       {loading
-        ? (<Loader type ='page' text={STRINGS.loadCoinDetails} />)
-        : (<Container>
+        ? (
+          <Loader
+            type ='page'
+            text={STRINGS.loadCoinDetails}
+          />
+        )
+        : (
+          <Container>
             <Header>
               <BackBtnContainer><Link to="/coins"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>
               <Title>{infoData?.name}</Title>
