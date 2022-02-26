@@ -10,7 +10,10 @@ const Chart = (props: ChartProps) => {
   const {isLoading, data} = useQuery<CoinChartSchema[]>(
     ["chart", props.coinId],
     () => getCoinChartData(props.coinId),
-    {refetchInterval: 10000}
+    {
+      cacheTime: 3600000,
+      staleTime: 3600000
+    }
   );
   return (
     <>
