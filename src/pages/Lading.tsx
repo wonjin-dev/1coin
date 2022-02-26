@@ -3,12 +3,10 @@ import {Link} from "react-router-dom";
 import styled from "styled-components";
 import {COLORS} from "../constants/colors";
 import {IMAGES} from "../constants/images";
+import {LandingPageProps} from "../types";
 
-interface Props {
-  title: string;
-}
 
-const Landing = (props: Props) => {
+const Landing = (props: LandingPageProps) => {
   const title = props.title;
   const [text, setText] = useState('');
   const [count, setCount] = useState(0);

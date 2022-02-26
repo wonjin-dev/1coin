@@ -1,14 +1,9 @@
 import styled, {keyframes} from "styled-components";
 import {COLORS} from "../constants/colors";
+import {LoaderProps} from "../types";
 
-type LoaderType = 'spin' | 'page';
-interface Props {
-  type: LoaderType;
-  text?: string;
-  img?: string;
-}
 
-const Loader = (props: Props) => {
+const Loader = (props: LoaderProps) => {
   return (
     <>
       {props.type === 'spin' ? (

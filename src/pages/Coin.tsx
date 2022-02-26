@@ -6,15 +6,12 @@ import {COLORS} from "../constants/colors";
 import {STRINGS} from "../constants/ko";
 import {CoinDetailsSchema, CoinTickerSchema} from "../api/schema/coinSchema";
 import {getCoinDetails, getCoinTickers} from "../api/coin";
+import {CoinPageRouteParams} from "../types";
 import Loader from "../components/Loader";
 import Chart from "../components/Chart";
 
-interface RouteParams {
-  coinId: string;
-}
-
 const Coin = () => {
-  const {coinId} = useParams<RouteParams>();
+  const {coinId} = useParams<CoinPageRouteParams>();
   const chartMatch = useRouteMatch("/:coinId/chart");
   const {isLoading: infoLoading, data: infoData} = useQuery<CoinDetailsSchema>(
     ["details", coinId],

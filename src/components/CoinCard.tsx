@@ -1,14 +1,9 @@
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 import {COLORS} from "../constants/colors";
+import {CoinCardProps} from "../types";
 
-interface Props {
-  coinId: string;
-  coinName: string;
-  coinSymbol: string;
-}
-
-const CoinCard = (props: Props) => {
+const CoinCard = (props: CoinCardProps) => {
   return (
     <ul>
       <Link to={{

@@ -3,13 +3,10 @@ import ApexChart from "react-apexcharts";
 import {IMAGES} from "../constants/images";
 import {CoinChartSchema} from "../api/schema/coinSchema";
 import {getCoinChartData} from "../api/coin";
+import {ChartProps} from "../types";
 import Loader from "./Loader";
 
-interface Props {
-  coinId: string;
-}
-
-const Chart = (props: Props) => {
+const Chart = (props: ChartProps) => {
   const {isLoading, data} = useQuery<CoinChartSchema[]>(
     ["chart", props.coinId],
     () => getCoinChartData(props.coinId),
