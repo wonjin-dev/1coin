@@ -13,7 +13,6 @@ import Chart from "../components/Chart";
 const Coin = () => {
   const {coinId} = useParams<CoinPageRouteParams>();
   const chartMatch = useRouteMatch("/:coinId/chart");
-  
   const {isLoading: infoLoading, data: infoData} = useQuery<CoinDetailsSchema>(
     ["details", coinId],
     () => getCoinDetails(coinId),
@@ -24,14 +23,14 @@ const Coin = () => {
   );
 
   const {isLoading: tickersLoading, data: tickersData} = useQuery<CoinTickerSchema>(
-    ["tickers", coinId],
-    () => getCoinTickers(coinId),
+    ["tickers", coinId], () => getCoinTickers(coinId),
     {
       cacheTime: 3600000,
       staleTime: 3600000
     }
   );
   const loading = infoLoading || tickersLoading;
+  
   return (
     <>
       {loading
@@ -44,37 +43,44 @@ const Coin = () => {
         : (
           <Container>
             <Header>
-              <BackBtnContainer><Link to="/coins"><IoIosArrowDropleftCircle /></Link></BackBtnContainer>
+              <BackBtnContainer>
+                <Link to="/coins">
+                  <IoIosArrowDropleftCircle />
+                </Link>
+              </BackBtnContainer>
               <Title>{infoData?.name}</Title>
             </Header>
-          <DetailsCotainer>
-            <Details>
-              <span>{STRINGS.rank}</span>
-              <span>{infoData?.rank}</span>
-            </Details>
-            <Details>
-              <span>{STRINGS.price}</span>
-              <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
-            </Details>
-          </DetailsCotainer>
-          <DetailsCotainer>
-          <Description>
-            {infoData?.description
-              ? infoData?.description.length > 300
-                ? `${infoData?.description.slice(0, 300)}  . . .`
-                : infoData?.description
-              : null}
-          </Description>
-          </DetailsCotainer>
-          <Tab isActive={chartMatch !== null}>
-              <Link to={`/coins/${coinId}/chart`}>{STRINGS.seeChart}</Link>
+            <DetailsCotainer>
+              <Details>
+                <span>{STRINGS.rank}</span>
+                <span>{infoData?.rank}</span>
+              </Details>
+              <Details>
+                <span>{STRINGS.price}</span>
+                <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
+              </Details>
+            </DetailsCotainer>
+            <DetailsCotainer>
+              <Description>
+                {infoData?.description
+                  ? infoData?.description.length > 300
+                    ? `${infoData?.description.slice(0, 300)}  . . .`
+                    : infoData?.description
+                  : null}
+              </Description>
+            </DetailsCotainer>
+            <Tab isActive={chartMatch !== null}>
+              <Link to={`/coins/${coinId}/chart`}>
+                {STRINGS.seeChart}
+              </Link>
             </Tab>
-          <Switch>
-            <Route path={`/coins/:coinId/chart`}>
-              <Chart coinId={coinId} />
-            </Route>
-          </Switch>
-        </Container>)
+            <Switch>
+              <Route path={`/coins/:coinId/chart`}>
+                <Chart coinId={coinId} />
+              </Route>
+            </Switch>
+          </Container>
+        )
       }
     </>
   );

@@ -10,7 +10,7 @@ import Loader from "../components/Loader";
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
-  const [target, setTarget] = useState<null | Element>(null);
+  const [target, setTarget] = useState<Element | null>(null);
   const [fetchIndex, setIndex] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [coinList, setCoinList] = useState<CoinListSchema[]>([]);
@@ -52,24 +52,37 @@ const Coins = () => {
   return (
 	<>
 	  {coinList.length > 0
-	    ? (<Container>
-		  <Header>
-			<Intro>{STRINGS.pjTitle}</Intro>
-		  </Header>
-	  	  {coinList.map((coin: CoinListSchema, i: number) => {
-	  	    return (
-	  	      <CoinCard
-	  	        key={i}
-	  	        coinId={coin.id}
-	  	        coinName={coin.name}
-	  	        coinSymbol={coin.symbol}
-	  	      />
-	  	    );
-	  	  })}
-	  	</Container>)
-		: (<Loader type={"page"} text={STRINGS.loadCoinList} />)
+	    ? (
+		  <Container>
+		  	<Header>
+			  <Intro>{STRINGS.pjTitle}</Intro>
+		  	</Header>
+	  	    {coinList.map((coin: CoinListSchema, i: number) => {
+	  	      return (
+	  	        <CoinCard
+	  	          key={i}
+	  	          coinId={coin.id}
+	  	          coinName={coin.name}
+	  	          coinSymbol={coin.symbol}
+	  	        />
+	  	      );
+	  	    })}
+	  	  </Container>
+		)
+		: (
+		  <Loader
+		    type={"page"}
+			text={STRINGS.loadCoinList}
+		  />
+		)
  	  }
-	  <div ref={setTarget}>{isLoaded && <Loader type="spin" img={IMAGES.coin} />}</div>
+	  <div ref={setTarget}>
+		{isLoaded && 
+		  <Loader
+		    type="spin"
+			img={IMAGES.coin}
+		  />}
+	  </div>
 	</>
   );
 };

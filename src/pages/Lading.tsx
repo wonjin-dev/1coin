@@ -5,7 +5,6 @@ import {COLORS} from "../constants/colors";
 import {IMAGES} from "../constants/images";
 import {LandingPageProps} from "../types";
 
-
 const Landing = (props: LandingPageProps) => {
   const title = props.title;
   const [text, setText] = useState('');

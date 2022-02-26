@@ -2,18 +2,20 @@ import styled, {keyframes} from "styled-components";
 import {COLORS} from "../constants/colors";
 import {LoaderProps} from "../types";
 
-
 const Loader = (props: LoaderProps) => {
   return (
     <>
-      {props.type === 'spin' ? (
+      {props.type === 'spin' 
+        ? (
         <ChartLoader>
           <ImageInLoader src={props.img} />
         </ChartLoader>
-      ) : ( 
-        <DefaultLoader>
-          <TextInLoader>{props.text}</TextInLoader>
-        </DefaultLoader>)
+        ) 
+        : (
+          <DefaultLoader>
+            <TextInLoader>{props.text}</TextInLoader>
+          </DefaultLoader>
+        )
       }
     </>
   )
