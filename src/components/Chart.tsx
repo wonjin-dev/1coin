@@ -11,6 +11,7 @@ const Chart = (props: ChartProps) => {
     ["chart", props.coinId],
     () => getCoinChartData(props.coinId),
     {
+      cacheTime: 3600000,
       staleTime: 3600000
     }
   );

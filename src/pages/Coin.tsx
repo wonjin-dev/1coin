@@ -18,6 +18,7 @@ const Coin = () => {
     ["details", coinId],
     () => getCoinDetails(coinId),
     {
+      cacheTime: 3600000,
       staleTime: 3600000
     }
   );
@@ -26,6 +27,7 @@ const Coin = () => {
     ["tickers", coinId],
     () => getCoinTickers(coinId),
     {
+      cacheTime: 3600000,
       staleTime: 3600000
     }
   );
