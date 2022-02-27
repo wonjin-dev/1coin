@@ -28,6 +28,13 @@
 
 ## _Schedule_
 
+**_`22/02/27`_**<br>
+**_1. 파일 이름 오류 수정_**
+
+**_2. lint 규칙 수정_**
+
+<Br>
+
 **_`22/02/26`_**<br>
 **_1. Theme Provider 제거_**
 
@@ -35,7 +42,7 @@
 
 **_2. api schema && component interfaces 하나의 파일에 통합하여 작성_**
 
-**_3. stale time, chace time 설정_**
+**_3. stale time, cache time 설정_**
 
 > 한 시간이 지나기 전에는 fresh 상태로 인식하여 리페치를 진행하지 않게 설정
 
