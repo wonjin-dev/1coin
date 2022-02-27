@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-mixed-spaces-and-tabs */
 import {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
 import {COLORS} from '../constants/colors';

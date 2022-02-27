@@ -5,7 +5,6 @@
     "@typescript-eslint"
   ],
   "extends": [
-    "react-app",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
@@ -13,6 +12,7 @@
   "rules": {
     "no-console": 1,
     "quotes": ["error", "single", {"avoidEscape": true}],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "no-mixed-spaces-and-tabs": "off"
   }
 }

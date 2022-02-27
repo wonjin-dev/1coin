@@ -1,6 +1,6 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {STRINGS} from './constants/ko';
-import Landing from './pages/Lading';
+import Landing from './pages/Landing';
 import Coins from './pages/Coins';
 import Coin from './pages/Coin';
 
