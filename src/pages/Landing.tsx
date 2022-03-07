@@ -18,35 +18,60 @@ const Landing = () => {
   };
 
   return (
-    <>
-      <form>
-        <PublicInput
-          name={'id'}
-          onChange={() => onChange}
-        />
-        <PublicInput
-          name={'pw'}
-          onChange={() => onChange}
-        />
-        <SubmitBtn>
-          {STRINGS.login}
-        </SubmitBtn>
-      </form>
-      <Link to={'/coins'}>
-        <SubmitBtn>
-          {STRINGS.review}
-        </SubmitBtn>
-      </Link>
-      <Link to={'/register'}>
-        <SubmitBtn>
-          {STRINGS.register}
-        </SubmitBtn>
-      </Link>
-    </>
+    <Conatiner>
+      <Content>
+        <form
+          method='post'
+          // action=''
+        >
+          <PublicInput
+            name={'id'}
+            onChange={() => onChange}
+          />
+          <PublicInput
+            type={'password'}
+            name={'pw'}
+            onChange={() => onChange}
+          />
+          <SubmitBtn>
+            {STRINGS.login}
+          </SubmitBtn>
+        </form>
+        <ButtonContainer>
+          <Link to={'/coins'}>
+            <SubmitBtn>
+              {STRINGS.review}
+            </SubmitBtn>
+          </Link>
+          <Link to={'/register'}>
+            <SubmitBtn>
+              {STRINGS.register}
+            </SubmitBtn>
+          </Link>
+        </ButtonContainer>
+      </Content>
+    </Conatiner>
   )
 }
 
 export default Landing;
+
+const Conatiner = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`
+
+const Content = styled.div`
+  flex-direction: column;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const SubmitBtn = styled.button`
   width: 80px;

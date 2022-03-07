@@ -20,6 +20,7 @@ export interface CoinPageRouteParams {
 }
 
 export interface InputProps {
+  type?: string
   name: string;
   value?: string | number;
   onChange: () => void;
