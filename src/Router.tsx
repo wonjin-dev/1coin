@@ -1,6 +1,6 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {STRINGS} from './constants/ko';
 import Landing from './pages/Landing';
+import Register from './pages/Register';
 import Coins from './pages/Coins';
 import Coin from './pages/Coin';
 
@@ -14,8 +14,11 @@ const Router = () => {
         <Route path="/coins">
           <Coins />
         </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
         <Route path="/">
-          <Landing title={STRINGS.pjName} />
+          <Landing />
         </Route>
       </Switch>
     </BrowserRouter>

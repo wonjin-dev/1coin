@@ -1,54 +1,54 @@
-import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {useState} from 'react';
 import styled from 'styled-components';
-import {COLORS} from '../constants/colors';
-import {IMAGES} from '../constants/images';
-import {LandingPageProps} from '../types';
+import {Link} from 'react-router-dom';
+import {STRINGS} from '../constants/ko';
+import {userType} from '../types';
+import PublicInput from '../components/PublicInput';
 
-const Landing = (props: LandingPageProps) => {
-  const title = props.title;
-  const [text, setText] = useState('');
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setText(text + title[count]);
-      setCount(count + 1);
-    }, 230);
-    if(count === title.length) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
+const Landing = () => {
+  const [user, setUser] = useState<userType>({
+    id: undefined,
+    pw: undefined
   });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
-    <Link to={'/coins'}>
-      <BackgroundImage>
-        <Header>
-          <Title>{text}</Title>
-        </Header>
-      </BackgroundImage>
-    </Link>
+    <>
+      <form>
+        <PublicInput
+          name={'id'}
+          onChange={() => onChange}
+        />
+        <PublicInput
+          name={'pw'}
+          onChange={() => onChange}
+        />
+        <SubmitBtn>
+          {STRINGS.login}
+        </SubmitBtn>
+      </form>
+      <Link to={'/coins'}>
+        <SubmitBtn>
+          {STRINGS.review}
+        </SubmitBtn>
+      </Link>
+      <Link to={'/register'}>
+        <SubmitBtn>
+          {STRINGS.register}
+        </SubmitBtn>
+      </Link>
+    </>
   )
 }
 
 export default Landing;
 
-const BackgroundImage = styled.div`
-  background-image: url(${IMAGES.landignBackImg});
-  width: 100vw;
-  height: 100vh;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-`;
-
-const Title = styled.h1`
-  font-size: 8rem;
-  color: ${COLORS.mainTextColor};
-`;
+const SubmitBtn = styled.button`
+  width: 80px;
+  height: 30px;
+`
