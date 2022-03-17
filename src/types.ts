@@ -30,3 +30,8 @@ export type userType = {
   id?: string,
   pw?: string
 }
+
+export interface BtntProps{
+  value?: string;
+  onClick?: () => void;
+}
