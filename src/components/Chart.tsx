@@ -4,9 +4,12 @@ import {IMAGES} from '../constants/images';
 import {CoinChartSchema} from '../api/schema/coinSchema';
 import {getCoinChartData} from '../api/coin';
 import {ChartProps} from '../types';
+import {useRecoilValue} from 'recoil';
+import {darkModeAtom} from '../atoms';
 import Loader from './Loader';
 
 const Chart = (props: ChartProps) => {
+  const isDarkMode = useRecoilValue(darkModeAtom)
   const {isLoading, data} = useQuery<CoinChartSchema[]>(
     ['chart', props.coinId], () => getCoinChartData(props.coinId),
     {
@@ -37,7 +40,7 @@ const Chart = (props: ChartProps) => {
             ]}
             options={{
               theme: {
-                mode: 'dark'
+                mode: isDarkMode ? 'dark' : 'light'
               },
               chart: {
                 type: 'candlestick',
