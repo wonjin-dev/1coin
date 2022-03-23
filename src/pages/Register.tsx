@@ -20,7 +20,7 @@ const Register = () => {
   };
   
   const onClickRegister = () => {
-    console.log(userInfo);
+    localStorage.setItem('user', JSON.stringify(userInfo));
   }
 
   return (
