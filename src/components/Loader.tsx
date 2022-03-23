@@ -1,5 +1,4 @@
 import styled, {keyframes} from 'styled-components';
-import {COLORS} from '../constants/colors';
 import {LoaderProps} from '../types';
 
 const Loader = (props: LoaderProps) => {
@@ -40,7 +39,7 @@ const ChartLoader = styled.div`
 `
 
 const TextInLoader = styled.span`
-  color: ${COLORS.mainTextColor}
+  color: ${(props) => props.theme.textColor};
 `
 
 const spinAnimation = keyframes`
@@ -53,7 +52,6 @@ const spinAnimation = keyframes`
   100% {
     transform: none;
   }
-}
 `
 
 const ImageInLoader = styled.img`

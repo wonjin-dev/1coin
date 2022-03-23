@@ -1,6 +1,7 @@
 import {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
-import {COLORS} from '../constants/colors';
+import {useSetRecoilState} from 'recoil';
+import {darkModeAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
 import {CoinListSchema} from '../api/schema/coinSchema';
@@ -14,6 +15,8 @@ const Coins = () => {
   const [fetchIndex, setIndex] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [coinList, setCoinList] = useState<CoinListSchema[]>([]);
+  const darkMode = useSetRecoilState(darkModeAtom)
+  const setDarkMode = () => darkMode((prev) => !prev);
 
   const getMoreCoins = useCallback(async() => {
   	setIsLoaded(true);
@@ -56,6 +59,7 @@ const Coins = () => {
 		  <Container>
 		  	<Header>
 			  <Intro>{STRINGS.pjTitle}</Intro>
+			  <button onClick={setDarkMode}>DarkMode</button>
 		  	</Header>
 	  	    {coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
@@ -101,5 +105,5 @@ const Header = styled.div`
 `
 
 const Intro = styled.h1`
-  color: ${COLORS.mainTextColor};
+  color: ${(props) => props.theme.textColor};
 `

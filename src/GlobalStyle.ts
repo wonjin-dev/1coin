@@ -1,5 +1,4 @@
 import {createGlobalStyle} from 'styled-components';
-import {COLORS} from './constants/colors';
 
 export const GlobalStyle = createGlobalStyle`
   html, body, div, span, h1, ul, img {
@@ -8,8 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
   }
   body {
-    background-color: ${COLORS.mainBackgroundColor};
-    color: ${COLORS.mainTextColor};
+    background-color: ${(props) => props.theme.bgColor};
+    color: ${(props) => props.theme.textColor};
   }
   a {
   text-decoration: none;

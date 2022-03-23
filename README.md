@@ -21,6 +21,10 @@
 **_1. 회원가입 & 로그인 페이지 레이아웃 구현_**
 > Input, Button을 Public으로 분리하여 이후 개발에 공통 컴포넌트로 고려하여 개발
 
+**_2. COLORS 상수 제거_**
+
+**_3. 다크모드 & 컨트롤 토글 추가_**
+
 <br>
 
 **_`22/02/27`_**<br>
@@ -148,15 +152,24 @@ animations
 TypeError: MiniCssExtractPlugin is not a constructor
 ```
 
-> CAUSE: react 내부에서 `mini-css-extract-plugin`의 버전 업에 따른 충돌로 빌드 오류가 발생했다<br>
-> SOLUTION: `yarn add mini-css-extract-plugin@2.4.5`
+> `CAUSE`: react 내부에서 `mini-css-extract-plugin`의 버전 업에 따른 충돌로 빌드 오류가 발생했다<br>
+> `SOLUTION`: `yarn add mini-css-extract-plugin@2.4.5`
 
 **_2. Gh-pages를 이용한 배포 실패_**
 
-> CAUSE: `react-router-dom`에서 `BrowserRouter`는 Gh-pages로 배포시에 /{repository}가 기본 url이기 때문에 라우트가 일치하지 않아서 빌드에 오류가 발생했다<br>
-> SOLUTION: 라우터 설정에서 `basename={process.env.PUBLIC_URL}`를 작성해준다
+> `CAUSE`: `react-router-dom`에서 `BrowserRouter`는 Gh-pages로 배포시에 /{repository}가 기본 url이기 때문에 라우트가 일치하지 않아서 빌드에 오류가 발생했다<br>
+> `SOLUTION`: 라우터 설정에서 `basename={process.env.PUBLIC_URL}`를 작성해준다
 
 **_3. 무한 스크롤 반복 배열 오류_**
 
-> CAUSE: Observer를 통한 무한 스크롤 구현에서, Observer의 민감도 때문에 데이터 페칭이 끝나기 전에 API를 재호출 하여, 순서에 맞지 않는 반복된 데이터를 가져오는 오류가 발생했다<br>
-> SOLUTION: timer를 이용해 Throttling을 설정하여 해결
+> `CAUSE`: Observer를 통한 무한 스크롤 구현에서, Observer의 민감도 때문에 데이터 페칭이 끝나기 전에 API를 재호출 하여, 순서에 맞지 않는 반복된 데이터를 가져오는 오류가 발생했다<br>
+> `SOLUTION`: timer를 이용해 Throttling을 설정하여 해결
+
+**_4. 레코일로 패치한 상태에 따른 전역 스타일링 오류_**
+
+```
+Invalid hook call. Hooks can only be called inside of the body of a function component
+```
+
+> `CAUSE`: `useRecoilValue`라는 hook을 통해 상태를 가져오기 때문에 기존 상수로 디자인을 지정해주던 방식으로는 컴포넌트가 아니기 때문에 훅스를 사용할 수 없었다(hook은 컴포넌트 최상위에서 불려야하기 때문)
+> `SOLUTION`: Stlyed-components에서 제공하는 ThemeProvider를 이용해 Theme을 사전에 정의하고 컴포넌트에서 스타일링을 입히게 로직을 변경하였다
