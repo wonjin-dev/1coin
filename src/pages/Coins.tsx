@@ -1,6 +1,5 @@
 import {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
-import {COLORS} from '../constants/colors';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
 import {CoinListSchema} from '../api/schema/coinSchema';
@@ -101,5 +100,5 @@ const Header = styled.div`
 `
 
 const Intro = styled.h1`
-  color: ${COLORS.mainTextColor};
+  color: '#f5f6fa';
 `

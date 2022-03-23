@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {COLORS} from '../constants/colors';
 import {CoinCardProps} from '../types';
 
 const CoinCard = (props: CoinCardProps) => {
@@ -30,9 +29,9 @@ const Coin = styled.li`
   padding: 30px;
   background-color: inherit;
   border: 1px solid;
-  border-color: ${COLORS.mainTextColor};
+  border-color: '#f5f6fa';
   border-radius: 15px;
-  color: ${COLORS.mainTextColor};
+  color: '#f5f6fa';
 `;
 
 const CoinThumbnail = styled.img`

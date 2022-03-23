@@ -1,5 +1,8 @@
 import {createGlobalStyle} from 'styled-components';
-import {COLORS} from './constants/colors';
+import {useRecoilValue} from 'recoil';
+import {darkModeAtom} from './atoms';
+
+const isDarkMode = useRecoilValue(darkModeAtom);
 
 export const GlobalStyle = createGlobalStyle`
   html, body, div, span, h1, ul, img {
@@ -8,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
   }
   body {
-    background-color: ${COLORS.mainBackgroundColor};
-    color: ${COLORS.mainTextColor};
+    background-color: ${isDarkMode ? '#2f3640' : '#f5f6fa'};
+    color: ${isDarkMode ? '#f5f6fa' : '#2f3640'};
   }
   a {
   text-decoration: none;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {COLORS} from '../constants/colors';
 import {InputProps} from '../types';
 
 const PublicInput = (props: InputProps) => {
@@ -19,7 +18,7 @@ export default PublicInput;
 const StyledInput = styled.input`
   width: 300px;
   height: 70px;
-  background-color: ${COLORS.mainTextColor};
+  background-color: '#f5f6fa';
   border: none;
   border-radius: 10px;
   font-size: 40px;
