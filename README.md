@@ -9,6 +9,7 @@
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/146652190-f113fe0f-6432-481e-9c9b-b1869ddc67c7.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/146652259-5c3b7a73-854c-40cc-bedd-f9a36f7ba664.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469158-5150ccf7-c857-4fa6-90ee-4d22fc4ffd6c.png">
+  <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/159604709-2324406b-7861-48fb-a455-9769ed0b1073.jpeg">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469221-20b4777f-0cef-46ee-95d7-ac0dffa02962.png">
 </div>
 
@@ -85,14 +86,14 @@ animations
 <br><br>
 
 **_`22/01/24`_**<br>
-**_1. Landing 페이지 개발_**
+**_1. Landing 페이지 개발 -2_**
 
 > 어떤 배경 이미지든 채도 및 명도를 낮추어 보여주는 스타일을 생성
 
 <br>
 
 **_`22/01/23`_**<br>
-**_1. Landing 페이지 개발 #1_**
+**_1. Landing 페이지 개발 -1_**
 
 > \- 라우터 변경<br> - Title animation 개발
 
