@@ -1,7 +1,3 @@
-export interface LandingPageProps {
-  title: string;
-}
-
 export type LoaderType = 'spin' | 'page';
 export interface LoaderProps {
   type: LoaderType;
@@ -21,4 +17,21 @@ export interface ChartProps {
 
 export interface CoinPageRouteParams {
   coinId: string;
+}
+
+export interface InputProps {
+  type?: string
+  name: string;
+  value?: string | number;
+  onChange: () => void;
+}
+
+export type userType = {
+  id?: string,
+  pw?: string
+}
+
+export interface BtntProps{
+  value?: string;
+  onClick?: () => void;
 }

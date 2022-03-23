@@ -1,47 +1,61 @@
 import {useState} from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 import {STRINGS} from '../constants/ko';
-import {userType} from '../types';
-import PublicInput from '../components/PublicInput';
 import PublicBtn from '../components/PublicBtn';
+import PublicInput from '../components/PublicInput';
+import { Link } from 'react-router-dom';
 
-const Landing = () => {
-  const [user, setUser] = useState<userType>({
+const Register = () => {
+  const [userInfo, setUserInfo]= useState({
+    email: undefined,
     id: undefined,
     pw: undefined
   });
-  
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUser({
-      ...user,
+    setUserInfo({
+      ...userInfo,
       [e.target.name]: e.target.value
     });
   };
+  
+  const onClickRegister = () => {
+    console.log(userInfo);
+  }
+  
+
 
   return (
     <Conatiner>
       <PublicInput
-        name={'id'}
+        name={'email'}
+        value={userInfo.email}
         onChange={() => onChange}
       />
       <PublicInput
-        type={'password'}
-        name={'pw'}
+        name={'id'}
+        value={userInfo.id}
         onChange={() => onChange}
       />
-      <PublicBtn value={STRINGS.login} />
-      <Link to={'/coins'}>
-        <PublicBtn value={STRINGS.review} />
-      </Link>
-      <Link to={'/register'}>
-        <PublicBtn value={STRINGS.register} />
+      <PublicInput
+        name={'pw'}
+        value={userInfo.pw}
+        onChange={() => onChange}
+      />
+      <PublicBtn
+        value={STRINGS.register}
+        onClick={onClickRegister}
+      />
+      <Link to="/">
+        <PublicBtn
+          value={STRINGS.back}
+        />
       </Link>
     </Conatiner>
   )
 }
 
-export default Landing;
+export default Register;
 
 const Conatiner = styled.div`
   display: flex;
