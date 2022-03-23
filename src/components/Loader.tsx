@@ -39,7 +39,7 @@ const ChartLoader = styled.div`
 `
 
 const TextInLoader = styled.span`
-  color: '#f5f6fa'
+  color: ${(props) => props.theme.textColor};
 `
 
 const spinAnimation = keyframes`

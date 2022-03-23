@@ -18,7 +18,7 @@ export default PublicInput;
 const StyledInput = styled.input`
   width: 300px;
   height: 70px;
-  background-color: '#f5f6fa';
+  background-color: ${(props) => props.theme.textColor};
   border: none;
   border-radius: 10px;
   font-size: 40px;

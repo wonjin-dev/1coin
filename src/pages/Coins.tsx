@@ -100,5 +100,5 @@ const Header = styled.div`
 `
 
 const Intro = styled.h1`
-  color: '#f5f6fa';
+  color: ${(props) => props.theme.textColor};
 `

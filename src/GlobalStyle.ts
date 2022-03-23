@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
   }
+  body {
+    background-color: ${(props) => props.theme.bgColor};
+    color: ${(props) => props.theme.textColor};
+  }
   a {
   text-decoration: none;
   color: inherit;

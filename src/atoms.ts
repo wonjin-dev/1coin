@@ -1,7 +1,7 @@
 import {atom} from 'recoil';
 
 export const darkModeAtom = atom({
-  key: 'isDartk',
+  key: 'isDark',
   default: true
 });
 

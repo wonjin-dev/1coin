@@ -102,12 +102,12 @@ const Header = styled.header`
 const BackBtnContainer = styled.div`
   margin: 10px 50px 0px 0px;
   font-size: 48px;
-  color: '#f5f6fa';
+  color: ${(props) => props.theme.textColor};
 `;
 
 const Title = styled.h1`
   font-size: 48px;
-  color: '#f5f6fa';
+  color: ${(props) => props.theme.textColor};
 `;
 
 const DetailsCotainer = styled.div`
@@ -115,7 +115,7 @@ const DetailsCotainer = styled.div`
   justify-content: space-between;
   padding: 10px 20px;
   margin: 30px 0px;
-  background-color: '#171B20';
+  background-color: ${(props) => props.theme.bgColor};
   border-radius: 10px;
 `;
 
@@ -134,7 +134,7 @@ const Tab = styled.span<{isActive: boolean}>`
   text-align: center;
   font-size: 16px;
   font-weight: 700;
-  color: '#f5f6fa';
+  color: ${(props) => props.theme.textColor};
   a {
     display: block;
   }
