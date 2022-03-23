@@ -31,14 +31,12 @@ const Landing = () => {
         onChange={() => onChange}
       />
       <PublicBtn value={STRINGS.login} />
-      <ButtonContainer>
-        <Link to={'/coins'}>
-          <PublicBtn value={STRINGS.review} />
-        </Link>
-        <Link to={'/register'}>
-          <PublicBtn value={STRINGS.register} />
-        </Link>
-      </ButtonContainer>
+      <Link to={'/coins'}>
+        <PublicBtn value={STRINGS.review} />
+      </Link>
+      <Link to={'/register'}>
+        <PublicBtn value={STRINGS.register} />
+      </Link>
     </Conatiner>
   )
 }
@@ -47,13 +45,9 @@ export default Landing;
 
 const Conatiner = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-`
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
 `

@@ -23,4 +23,5 @@ const StyledInput = styled.input`
   border: none;
   border-radius: 10px;
   font-size: 40px;
+  margin-bottom: 10px;
 `

@@ -1,7 +1,9 @@
 import {useState} from 'react';
+import styled from 'styled-components';
 import {STRINGS} from '../constants/ko';
 import PublicBtn from '../components/PublicBtn';
 import PublicInput from '../components/PublicInput';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [userInfo, setUserInfo]= useState({
@@ -18,11 +20,13 @@ const Register = () => {
   };
   
   const onClickRegister = () => {
-    console.log('스테이트를 로컬 스토리지에 보내야 함');
+    console.log(userInfo);
   }
   
+
+
   return (
-    <>
+    <Conatiner>
       <PublicInput
         name={'email'}
         value={userInfo.email}
@@ -40,10 +44,24 @@ const Register = () => {
       />
       <PublicBtn
         value={STRINGS.register}
-        onClick={() => onClickRegister}
+        onClick={onClickRegister}
       />
-    </>
+      <Link to="/">
+        <PublicBtn
+          value={STRINGS.back}
+        />
+      </Link>
+    </Conatiner>
   )
 }
 
 export default Register;
+
+const Conatiner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`
