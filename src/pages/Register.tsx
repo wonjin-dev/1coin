@@ -1,9 +1,9 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {STRINGS} from '../constants/ko';
 import PublicBtn from '../components/PublicBtn';
 import PublicInput from '../components/PublicInput';
-import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [userInfo, setUserInfo]= useState({
@@ -22,8 +22,6 @@ const Register = () => {
   const onClickRegister = () => {
     console.log(userInfo);
   }
-  
-
 
   return (
     <Conatiner>
