@@ -63,12 +63,14 @@ const Coins = () => {
 		  	</Header>
 	  	    {coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
+                <Cards>
 	  	        <CoinCard
 	  	          key={i}
 	  	          coinId={coin.id}
 	  	          coinName={coin.name}
 	  	          coinSymbol={coin.symbol}
 	  	        />
+				  </Cards>
 	  	      );
 	  	    })}
 	  	  </Container>
@@ -96,7 +98,22 @@ export default Coins;
 const Container = styled.div`
   max-width: 480px;
   margin: 0 auto;
+  @media screen and (min-width: 1024px) {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 100%;
+}
 `;
+
+const Cards = styled.div`
+  @media screen and (min-width: 1024px) {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 25px;
+	width: 60%;
+}
+`
 
 const Header = styled.div`
   display: flex;
