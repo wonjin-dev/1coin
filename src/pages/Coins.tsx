@@ -100,7 +100,7 @@ const Container = styled.div`
   margin: 0 auto;
   @media screen and (min-width: 1024px) {
 	max-width: 100%;
-}
+  }
 `;
 
 const Cards = styled.div`
@@ -109,15 +109,15 @@ const Cards = styled.div`
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 20px;
 	margin: 0 10% 0 10%
-}
-`
+  }
+`;
 
 const Header = styled.div`
   display: flex;
   justify-content: center;
   padding: 40px;
-`
+`;
 
 const Intro = styled.h1`
   color: ${(props) => props.theme.textColor};
-`
+`;
