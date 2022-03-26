@@ -4,7 +4,7 @@ import {BtntProps} from '../types';
 const PublicBtn = (props: BtntProps) => {
   return (
     <Conatiner>
-      <StyledBtn>
+      <StyledBtn onClick={props.onClick}>
         <BtnValue>
           {props.value}
         </BtnValue>
