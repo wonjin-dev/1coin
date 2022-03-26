@@ -10,7 +10,7 @@ const CoinCard = (props: CoinCardProps) => {
         state: {name: props.coinName}
       }}>
         <Coin>
-          <CoinThumbnail src={`https://cryptoicon-api.vercel.app/api/icon/${props.coinSymbol.toLowerCase()}`} />
+          <CoinThumbnail src={`https://cryptocurrencyliveprices.com/img/${props.coinId}.png`} />
           <CoinInfo>
             {props.coinName}
           </CoinInfo>
