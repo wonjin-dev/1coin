@@ -12,7 +12,6 @@
   "rules": {
     "no-console": 1,
     "quotes": ["error", "single", {"avoidEscape": true}],
-    "indent": ["error", 2],
-    "no-mixed-spaces-and-tabs": "off"
+    "indent": ["error", 2]
   }
 }

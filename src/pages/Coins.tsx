@@ -54,13 +54,13 @@ const Coins = () => {
 
   return (
     <>
-	  {coinList.length > 0
-	    ? (
-		  <Container>
-		  	<Header>
-			  <Intro>{STRINGS.pjTitle}</Intro>
-			  <button onClick={setDarkMode}>DarkMode</button>
-		  	</Header>
+	  {coinList.length > 0 ? (
+		<Container>
+		  <Header>
+		    <Intro>{STRINGS.pjTitle}</Intro>
+		    <button onClick={setDarkMode}>DarkMode</button>
+		  </Header>
+          <Cards>
 	  	    {coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
 	  	        <CoinCard
@@ -69,17 +69,16 @@ const Coins = () => {
 	  	          coinName={coin.name}
 	  	          coinSymbol={coin.symbol}
 	  	        />
-	  	      );
+              );
 	  	    })}
-	  	  </Container>
-        )
-        : (
-		  <Loader
-		    type={'page'}
-            text={STRINGS.loadCoinList}
-		  />
-        )
- 	  }
+          </Cards>
+	  	</Container>
+      ) : (
+		<Loader
+		  type={'page'}
+          text={STRINGS.loadCoinList}
+		/>
+      )}
 	  <div ref={setTarget}>
         {isLoaded && 
 		  <Loader
@@ -96,14 +95,26 @@ export default Coins;
 const Container = styled.div`
   max-width: 480px;
   margin: 0 auto;
+  @media screen and (min-width: 1024px) {
+	max-width: 100%;
+  }
+`;
+
+const Cards = styled.div`
+  @media screen and (min-width: 1024px) {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	margin: 0 10% 0 10%
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: center;
   padding: 40px;
-`
+`;
 
 const Intro = styled.h1`
   color: ${(props) => props.theme.textColor};
-`
+`;
