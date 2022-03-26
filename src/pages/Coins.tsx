@@ -54,14 +54,13 @@ const Coins = () => {
 
   return (
     <>
-	  {coinList.length > 0
-	    ? (
-		  <Container>
-		  	<Header>
-			  <Intro>{STRINGS.pjTitle}</Intro>
-			  <button onClick={setDarkMode}>DarkMode</button>
-		  	</Header>
-			  <Cards>
+	  {coinList.length > 0 ? (
+		<Container>
+		  <Header>
+		    <Intro>{STRINGS.pjTitle}</Intro>
+		    <button onClick={setDarkMode}>DarkMode</button>
+		  </Header>
+          <Cards>
 	  	    {coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
 	  	        <CoinCard
@@ -70,18 +69,16 @@ const Coins = () => {
 	  	          coinName={coin.name}
 	  	          coinSymbol={coin.symbol}
 	  	        />
-				  );
+              );
 	  	    })}
-			  	</Cards>
-	  	  </Container>
-        )
-        : (
-		  <Loader
-		    type={'page'}
-            text={STRINGS.loadCoinList}
-		  />
-        )
- 	  }
+          </Cards>
+	  	</Container>
+      ) : (
+		<Loader
+		  type={'page'}
+          text={STRINGS.loadCoinList}
+		/>
+      )}
 	  <div ref={setTarget}>
         {isLoaded && 
 		  <Loader

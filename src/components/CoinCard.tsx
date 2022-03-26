@@ -27,11 +27,8 @@ const Coin = styled.li`
   align-items: center;
   margin-bottom: 10px;
   padding: 30px;
-  background-color: inherit;
   border: 1px solid;
-  border-color: '#f5f6fa';
   border-radius: 15px;
-  color: '#f5f6fa';
 `;
 
 const CoinThumbnail = styled.img`
@@ -42,4 +39,4 @@ const CoinThumbnail = styled.img`
 
 const CoinInfo = styled.h1`
   font-size: 19px;
-`
+`;
