@@ -17,6 +17,12 @@
 
 ## _Schedule_
 
+**_`22/03/27`_**<br>
+**_1. 유저 인증 로직 구현_**
+> session storage와 recoil을 이용해 회원가입 및 유저 인증 로직 구현
+
+<br>
+
 **_`22/03/26`_**<br>
 **_1. 미디어 쿼리 작성_**
 > 해상도에 따른 암호화폐 리스트 컴포넌트 변화
@@ -177,5 +183,5 @@ TypeError: MiniCssExtractPlugin is not a constructor
 Invalid hook call. Hooks can only be called inside of the body of a function component
 ```
 
-> `CAUSE`: `useRecoilValue`라는 hook을 통해 상태를 가져오기 때문에 기존 상수로 디자인을 지정해주던 방식으로는 컴포넌트가 아니기 때문에 훅스를 사용할 수 없었다(hook은 컴포넌트 최상위에서 불려야하기 때문)
+> `CAUSE`: `useRecoilValue`라는 hook을 통해 상태를 가져오기 때문에 기존 상수로 디자인을 지정해주던 방식으로는 컴포넌트가 아니기 때문에 훅스를 사용할 수 없었다(hook은 컴포넌트 최상위에서 불려야하기 때문)<br>
 > `SOLUTION`: Stlyed-components에서 제공하는 ThemeProvider를 이용해 Theme을 사전에 정의하고 컴포넌트에서 스타일링을 입히게 로직을 변경하였다
