@@ -1,44 +1,62 @@
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {useRecoilState} from 'recoil';
+import {userAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import PublicBtn from '../components/PublicBtn';
 import PublicInput from '../components/PublicInput';
-
+import {userType} from '../types';
+import {checkOverlap} from '../utils/checkOverlap';
 const Register = () => {
-  const [userInfo, setUserInfo]= useState({
-    email: undefined,
-    id: undefined,
-    pw: undefined
+  const [newUser, setNewUser] = useState<userType>({
+    email: '',
+    id: '',
+    pw: ''
   });
+  const [users, setUsers]= useRecoilState(userAtom);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInfo({
-      ...userInfo,
+    setNewUser({
+      ...newUser,
       [e.target.name]: e.target.value
     });
   };
   
   const onClickRegister = () => {
-    localStorage.setItem('user', JSON.stringify(userInfo));
-  }
+    const overlapBool = checkOverlap({
+      origin: users,
+      key: 'id',
+      new: newUser.id || ''
+    });
+    
+    if(overlapBool === false) {
+      setUsers([...users, newUser]);
+      // TODO:: input 유효성 검사 추가
+      // TODO:: 회원가입 성공시 랜딩페이지로 라우팅
+      // TODO:: 모달 추가하기 => '바로 로그인', '로그인 창으로'
+    } else {
+      // TODO:: 모달 추가하기
+      throw new Error(STRINGS.overlapId);
+    }
+  };
 
   return (
     <Conatiner>
       <PublicInput
         name={'email'}
-        value={userInfo.email}
-        onChange={() => onChange}
+        value={newUser.email}
+        onChange={onChange}
       />
       <PublicInput
         name={'id'}
-        value={userInfo.id}
-        onChange={() => onChange}
+        value={newUser.id}
+        onChange={onChange}
       />
       <PublicInput
         name={'pw'}
-        value={userInfo.pw}
-        onChange={() => onChange}
+        value={newUser.pw}
+        onChange={onChange}
       />
       <PublicBtn
         value={STRINGS.register}
@@ -62,4 +80,4 @@ const Conatiner = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-`
+`;

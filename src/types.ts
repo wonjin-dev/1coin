@@ -23,10 +23,11 @@ export interface InputProps {
   type?: string
   name: string;
   value?: string | number;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export type userType = {
+  email?: string,
   id?: string,
   pw?: string
 }
