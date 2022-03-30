@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import { STRINGS } from '../../constants/ko';
 import PublicBtn from '../PublicBtn';
 
 interface Props {
+  onClickConfirm: () => void;
   onClickCancel: () => void;
 }
 
@@ -11,8 +13,14 @@ const ConfirmModal = (props: Props) => {
       <ModalWrapper>
         <Container>
           <BtnContainer>
-            <PublicBtn />
-            <PublicBtn />
+            <PublicBtn
+              value={STRINGS.register}
+              onClick={props.onClickConfirm}
+            />
+            <PublicBtn
+              value={STRINGS.back}
+              onClick={props.onClickCancel}
+            />
           </BtnContainer>
         </Container>
       </ModalWrapper>

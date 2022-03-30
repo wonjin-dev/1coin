@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import {useRecoilState} from 'recoil';
 import {userAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
-import PublicBtn from '../components/PublicBtn';
-import PublicInput from '../components/PublicInput';
 import {userType} from '../types';
 import {checkOverlap} from '../utils/checkOverlap';
+import PublicInput from '../components/PublicInput';
+import PublicBtn from '../components/PublicBtn';
+import ConfirmModal from '../components/modals/ConfirmModal';
+
 const Register = () => {
+  const [showModal, setShowModal] = useState(false);
   const [newUser, setNewUser] = useState<userType>({
     email: '',
     id: '',
@@ -32,10 +35,8 @@ const Register = () => {
     
     if(overlapBool === false) {
       setUsers([...users, newUser]);
-      // TODO:: input 유효성 검사 추가
       window.location.replace('http://localhost:3000/1coin/');
     } else {
-      // TODO:: 모달 추가하기
       throw new Error(STRINGS.overlapId);
     }
   };
@@ -59,13 +60,18 @@ const Register = () => {
       />
       <PublicBtn
         value={STRINGS.register}
-        onClick={onClickRegister}
+        onClick={() => setShowModal(true)}
       />
       <Link to="/">
         <PublicBtn
           value={STRINGS.back}
         />
       </Link>
+      {showModal && 
+        <ConfirmModal 
+          onClickConfirm={onClickRegister}
+          onClickCancel={() => setShowModal(false)} />
+      }
     </Conatiner>
   )
 }
