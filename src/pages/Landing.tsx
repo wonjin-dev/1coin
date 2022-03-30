@@ -22,13 +22,13 @@ const Landing = () => {
     });
   };
 
+  const origin = useRecoilValue(userAtom);
   const onClickLogin = () => {
-    const origin = useRecoilValue(userAtom);
     for(let i=0; i<origin.length; i++){
       if(origin[i].id === user.id){
         if(origin[i].pw === user.pw){
-          setAuth(true)
-          // TODO:: Home화면으로 라우팅
+          setAuth(true);
+          window.location.replace('http://localhost:3000/1coin/coins');
         } else {
           // 비밀번호가 틀립니다
         } 
