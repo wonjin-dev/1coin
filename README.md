@@ -17,8 +17,14 @@
 
 ## _Schedule_
 
+**_`22/03/30`_**<br>
+**_1. 커스텀 모달 개발_**
+> Confirm, Alert
+
+<br>
+
 **_`22/03/27`_**<br>
-**_1. 회원가입 로직 구현_**
+**_1. 유저 사인 기능 개발 -1_**
 > \- Recoil을 이용해 백엔드 없이 회원가입 구현<br>util함수 생성 (아이디 중복 체크)
 
 <br>
@@ -177,7 +183,7 @@ TypeError: MiniCssExtractPlugin is not a constructor
 > `CAUSE`: Observer를 통한 무한 스크롤 구현에서, Observer의 민감도 때문에 데이터 페칭이 끝나기 전에 API를 재호출 하여, 순서에 맞지 않는 반복된 데이터를 가져오는 오류가 발생했다<br>
 > `SOLUTION`: timer를 이용해 Throttling을 설정하여 해결
 
-**_4. 레코일로 패치한 상태에 따른 전역 스타일링 오류_**
+**_4. Recoil로 패치한 상태에 따른 전역 스타일링 오류_**
 
 ```
 Invalid hook call. Hooks can only be called inside of the body of a function component
@@ -185,3 +191,6 @@ Invalid hook call. Hooks can only be called inside of the body of a function com
 
 > `CAUSE`: `useRecoilValue`라는 hook을 통해 상태를 가져오기 때문에 기존 상수로 디자인을 지정해주던 방식으로는 컴포넌트가 아니기 때문에 훅스를 사용할 수 없었다(hook은 컴포넌트 최상위에서 불려야하기 때문)<br>
 > `SOLUTION`: Stlyed-components에서 제공하는 ThemeProvider를 이용해 Theme을 사전에 정의하고 컴포넌트에서 스타일링을 입히게 로직을 변경하였다
+
+**_5. Recoil Atom유지 관련 이슈_**
+Atom이 수정되는 것까지 확인했으나, window.location으로 이동시 atom이 초기화 되어 로그인이 되지 않는 이슈 발생

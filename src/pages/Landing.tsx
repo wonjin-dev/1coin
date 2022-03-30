@@ -7,8 +7,10 @@ import {STRINGS} from '../constants/ko';
 import {userType} from '../types';
 import PublicInput from '../components/PublicInput';
 import PublicBtn from '../components/PublicBtn';
+import AlertModal from '../components/modals/AlertModal';
 
 const Landing = () => {
+  const [showModal, setShowModal] = useState(false);
   const [user, setUser] = useState<userType>({
     id: undefined,
     pw: undefined
@@ -23,6 +25,7 @@ const Landing = () => {
   };
 
   const origin = useRecoilValue(userAtom);
+  console.log('로긴', origin);
   const onClickLogin = () => {
     for(let i=0; i<origin.length; i++){
       if(origin[i].id === user.id){
@@ -30,10 +33,10 @@ const Landing = () => {
           setAuth(true);
           window.location.replace('http://localhost:3000/1coin/coins');
         } else {
-          // 비밀번호가 틀립니다
+          setShowModal(true);
         } 
       } else {
-        // 일치하는 아이디가 없습니다
+        setShowModal(true);
       }
     }
   };
@@ -56,6 +59,12 @@ const Landing = () => {
       <Link to={'/register'}>
         <PublicBtn value={STRINGS.register} />
       </Link>
+      {showModal &&
+        <AlertModal 
+          msg={STRINGS.notMatchLogin}
+          onClickConfirm={() => setShowModal(false)} 
+        />
+      }
     </Conatiner>
   )
 }
