@@ -3,32 +3,29 @@ import {STRINGS} from '../../constants/ko';
 import PublicBtn from '../PublicBtn';
 
 interface Props {
+  msg: string;
   onClickConfirm: () => void;
-  onClickCancel: () => void;
 }
 
-const ConfirmModal = (props: Props) => {
+const AlertModal = (props: Props) => {
   return (
     <>
       <ModalWrapper>
         <Container>
-          <BtnContainer>
-            <PublicBtn
-              value={STRINGS.register}
-              onClick={props.onClickConfirm}
-            />
-            <PublicBtn
-              value={STRINGS.back}
-              onClick={props.onClickCancel}
-            />
-          </BtnContainer>
+          <Msg>
+            {props.msg}
+          </Msg>
+          <PublicBtn
+            value={STRINGS.confirm}
+            onClick={props.onClickConfirm}
+          />
         </Container>
       </ModalWrapper>
     </>
   )
 }
-
-export default ConfirmModal;
+  
+export default AlertModal;
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -42,15 +39,22 @@ const ModalWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1000;
-`
+`;
 
 const Container = styled.div`
-  display: flex;
-  padding: 50px;
-  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8%;
+  background-color: ${(props => props.theme.textColor)};
   border-radius: 10px;
-`
+`;
 
-const BtnContainer = styled.div`
-  display: flex;
+const Msg =styled.div`
+  color: ${(props => props.theme.bgColor)};;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 20px;
 `
