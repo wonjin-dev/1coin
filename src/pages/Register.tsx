@@ -1,54 +1,96 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {useRecoilState} from 'recoil';
+import {userAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
-import PublicBtn from '../components/PublicBtn';
+import {userType} from '../types';
+import {onSet} from '../utils/storage';
+import {checkOverlap} from '../utils/checkOverlap';
 import PublicInput from '../components/PublicInput';
+import PublicBtn from '../components/PublicBtn';
+import ConfirmModal from '../components/modals/ConfirmModal';
+import AlertModal from '../components/modals/AlertModal';
 
 const Register = () => {
-  const [userInfo, setUserInfo]= useState({
-    email: undefined,
-    id: undefined,
-    pw: undefined
+  const [showModal, setShowModal] = useState(false);
+  const [showAlertModal, setShowAlertModal] = useState(false);
+  const [finish, setFinish] = useState(false);
+  const [newUser, setNewUser] = useState<userType>({
+    email: '',
+    id: '',
+    pw: ''
   });
+  const [users, setUsers]= useRecoilState(userAtom);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInfo({
-      ...userInfo,
+    setNewUser({
+      ...newUser,
       [e.target.name]: e.target.value
     });
   };
   
   const onClickRegister = () => {
-    console.log(userInfo);
-  }
+    const overlapBool = checkOverlap({
+      origin: users,
+      key: 'id',
+      new: newUser.id || ''
+    });
+    
+    if(overlapBool === false) {
+      console.log('users', users);
+      console.log('newUser', newUser);
+      setUsers([...users, newUser]);
+      onSet('users', users, false);
+      setFinish(true);
+    } else {
+      setShowAlertModal(true);
+    }
+  };
+
+  useEffect(() => {
+    if(finish === true) {
+      window.location.replace('http://localhost:3000/1coin/');
+    }
+  }, [setFinish]);
 
   return (
     <Conatiner>
       <PublicInput
         name={'email'}
-        value={userInfo.email}
-        onChange={() => onChange}
+        value={newUser.email}
+        onChange={onChange}
       />
       <PublicInput
         name={'id'}
-        value={userInfo.id}
-        onChange={() => onChange}
+        value={newUser.id}
+        onChange={onChange}
       />
       <PublicInput
         name={'pw'}
-        value={userInfo.pw}
-        onChange={() => onChange}
+        value={newUser.pw}
+        onChange={onChange}
       />
       <PublicBtn
         value={STRINGS.register}
-        onClick={onClickRegister}
+        onClick={() => setShowModal(true)}
       />
       <Link to="/">
         <PublicBtn
           value={STRINGS.back}
         />
       </Link>
+      {showModal && 
+        <ConfirmModal 
+          onClickConfirm={onClickRegister}
+          onClickCancel={() => setShowModal(false)} />
+      }
+      {showAlertModal &&
+        <AlertModal 
+          msg={STRINGS.overlapId}
+          onClickConfirm={() => setShowAlertModal(false)} 
+        />
+      }
     </Conatiner>
   )
 }
@@ -62,4 +104,4 @@ const Conatiner = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-`
+`;
