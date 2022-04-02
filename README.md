@@ -23,6 +23,10 @@
 **_2. 로그인 및 회원가입 기능 삭제_**
 > 'Landing', 'Register'페이지 삭제, Modals 삭제, 관련 Atoms 및 로직 삭제
 
+**_3. staredCoin Atom 생성_**
+
+<br>
+
 **_`22/03/30`_**<br>
 **_1. 커스텀 모달 개발_**
 > Confirm Modal, Alert Modal
@@ -200,6 +204,3 @@ Invalid hook call. Hooks can only be called inside of the body of a function com
 
 > `CAUSE`: `useRecoilValue`라는 hook을 통해 상태를 가져오기 때문에 기존 상수로 디자인을 지정해주던 방식으로는 컴포넌트가 아니기 때문에 훅스를 사용할 수 없었다(hook은 컴포넌트 최상위에서 불려야하기 때문)<br>
 > `SOLUTION`: Stlyed-components에서 제공하는 ThemeProvider를 이용해 Theme을 사전에 정의하고 컴포넌트에서 스타일링을 입히게 로직을 변경하였다
-
-**_5. Recoil Atom유지 관련 이슈_**
-Atom이 수정되는 것까지 확인했으나, window.location으로 이동시 atom이 초기화 되어 로그인이 되지 않는 이슈 발생
