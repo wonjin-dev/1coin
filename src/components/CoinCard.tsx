@@ -5,10 +5,7 @@ import {CoinCardProps} from '../types';
 const CoinCard = (props: CoinCardProps) => {
   return (
     <ul>
-      <Link to={{
-        pathname: `/coins/${props.coinId}`,
-        state: {name: props.coinName}
-      }}>
+      <Link to={`/coins/${props.coinId}`}>
         <Coin>
           <CoinThumbnail src={`https://cryptocurrencyliveprices.com/img/${props.coinId}.png`} />
           <CoinInfo>

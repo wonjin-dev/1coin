@@ -18,14 +18,20 @@
 ## _Schedule_
 
 **_`22/03/30`_**<br>
+**_1. React-router-dom v5에서 v6으로 업데이트_**
+
+**_`22/03/30`_**<br>
 **_1. 커스텀 모달 개발_**
-> Confirm, Alert
+> Confirm Modal, Alert Modal
+
+**_2. local storage util 함수 개발_**
+> get & set & remove
 
 <br>
 
 **_`22/03/27`_**<br>
 **_1. 유저 사인 기능 개발 -1_**
-> \- Recoil을 이용해 백엔드 없이 회원가입 구현<br>util함수 생성 (아이디 중복 체크)
+> \- Recoil을 이용해 백엔드 없이 회원가입 구현<br>\- util함수 생성 (아이디 중복 체크)
 
 <br>
 

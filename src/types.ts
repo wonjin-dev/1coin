@@ -12,10 +12,10 @@ export interface CoinCardProps {
 }
 
 export interface ChartProps {
-  coinId: string;
+  coinId?: string;
 }
 
-export interface CoinPageRouteParams {
+export type CoinPageRouteParams = {
   coinId: string;
 }
 

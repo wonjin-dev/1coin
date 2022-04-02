@@ -1,4 +1,4 @@
-import {Link, Switch, Route, useParams, useRouteMatch} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import {useQuery} from 'react-query';
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
@@ -11,7 +11,6 @@ import Chart from '../components/Chart';
 
 const Coin = () => {
   const {coinId} = useParams<CoinPageRouteParams>();
-  const chartMatch = useRouteMatch('/:coinId/chart');
   const {isLoading: infoLoading, data: infoData} = useQuery<CoinDetailsSchema>(
     ['details', coinId],
     () => getCoinDetails(coinId),
@@ -68,16 +67,7 @@ const Coin = () => {
                   : null}
               </Description>
             </DetailsCotainer>
-            <Tab isActive={chartMatch !== null}>
-              <Link to={`/coins/${coinId}/chart`}>
-                {STRINGS.seeChart}
-              </Link>
-            </Tab>
-            <Switch>
-              <Route path={'/coins/:coinId/chart'}>
-                <Chart coinId={coinId} />
-              </Route>
-            </Switch>
+            <Chart coinId={coinId} />
           </Container>
         )
       }
@@ -128,14 +118,4 @@ const Details = styled.div`
 
 const Description = styled.p`
   margin: 20px 0px;
-`;
-
-const Tab = styled.span<{isActive: boolean}>`
-  text-align: center;
-  font-size: 16px;
-  font-weight: 700;
-  color: ${(props) => props.theme.textColor};
-  a {
-    display: block;
-  }
 `;
