@@ -26,13 +26,8 @@ export interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export type userType = {
-  email?: string,
-  id?: string,
-  pw?: string
-}
 
-export interface BtntProps{
+export interface BtnProps{
   value?: string;
   onClick?: () => void;
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import {BtntProps} from '../types';
+import {BtnProps} from '../types';
 
-const PublicBtn = (props: BtntProps) => {
+const PublicBtn = (props: BtnProps) => {
   return (
     <Conatiner>
       <StyledBtn onClick={props.onClick}>
