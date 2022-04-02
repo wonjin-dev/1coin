@@ -26,8 +26,11 @@ export interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-
 export interface BtnProps{
   value?: string;
   onClick?: () => void;
 }
+
+export type StaredCoin = {
+  name: string;
+};
