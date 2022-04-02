@@ -25,7 +25,6 @@ const Landing = () => {
   };
 
   const origin = useRecoilValue(userAtom);
-  console.log('로긴', origin);
   const onClickLogin = () => {
     for(let i=0; i<origin.length; i++){
       if(origin[i].id === user.id){

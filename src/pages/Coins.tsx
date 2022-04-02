@@ -55,7 +55,7 @@ const Coins = () => {
   return (
     <>
 	  {coinList.length > 0 ? (
-		<Container>
+	  	<Container>
 		  <Header>
 		    <Intro>{STRINGS.pjTitle}</Intro>
 		    <button onClick={setDarkMode}>DarkMode</button>
@@ -74,10 +74,10 @@ const Coins = () => {
           </Cards>
 	  	</Container>
       ) : (
-		<Loader
+	  	<Loader
 		  type={'page'}
-          text={STRINGS.loadCoinList}
-		/>
+		  text={STRINGS.loadCoinList}
+	  	/>
       )}
 	  <div ref={setTarget}>
         {isLoaded && 

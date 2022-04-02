@@ -38,8 +38,6 @@ const Register = () => {
     });
     
     if(overlapBool === false) {
-      console.log('users', users);
-      console.log('newUser', newUser);
       setUsers([...users, newUser]);
       onSet('users', users, false);
       setFinish(true);
