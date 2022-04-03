@@ -91,13 +91,11 @@ const Coins = () => {
 				  coinId={coin.coinId}
 				  coinName={coin.coinName}
 				  coinSymbol={coin.coinSymbol}
+				  isStared={coin.isStared}
 			    />
 			  )
 		    })}
-		    {staredCoins.length === 0 && <Loader
-		  	  type={'page'}
-		  	  text={STRINGS.noStaredCoin}
-	  		/>}
+		    {staredCoins.length === 0 && <>{STRINGS.noStaredCoin}</>}
           </Cards>
 	  	</Container>
       ) : (

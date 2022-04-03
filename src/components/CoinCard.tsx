@@ -8,7 +8,7 @@ import {staredCoinAtom} from '../atoms';
 import {checkOverlap} from '../utils/checkOverlap';
 
 const CoinCard = (props: CoinCardProps) => {
-  const [isStared, setStar] = useState(false);
+  const [isStared, setStar] = useState(false || props.isStared);
   const [staredCoin, setStaredCoin] = useRecoilState(staredCoinAtom);
   
   const StarBookmarkIcon = useMemo(() => {
@@ -17,7 +17,7 @@ const CoinCard = (props: CoinCardProps) => {
     } else {
       return IMAGES.unstar
     }
-  }, [isStared]);
+  }, [isStared, staredCoin]);
 
   const onClickStar = useCallback(() => {
     const overLap = checkOverlap({
@@ -26,14 +26,14 @@ const CoinCard = (props: CoinCardProps) => {
       key:'coinName'
     });
 
-    if(isStared !== true){
+    if(!isStared){
       setStar(true);
       if(!overLap){
         setStaredCoin([...staredCoin, {
           coinId: props.coinId,
           coinName: props.coinName,
           coinSymbol: props.coinSymbol,
-          isStared: isStared
+          isStared: true
         }]);
       }
     } else {
@@ -41,7 +41,7 @@ const CoinCard = (props: CoinCardProps) => {
       setStaredCoin(staredCoin.filter(coin => coin.coinName !== props.coinName));
     }
   }, [isStared, staredCoin]);
-
+  
   return (
     <Container>
       <Link to={`/coins/${props.coinId}`}>
