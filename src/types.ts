@@ -8,7 +8,8 @@ export interface LoaderProps {
 export interface CoinCardProps {
   coinId: string;
   coinName: string;
-  coinSymbol: string;
+  coinSymbol?: string;
+  isStared?: boolean;
 }
 
 export interface ChartProps {
@@ -25,7 +26,6 @@ export interface InputProps {
   value?: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-
 
 export interface BtnProps{
   value?: string;
