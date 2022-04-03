@@ -1,11 +1,16 @@
-import {useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {IMAGES} from '../constants/images';
 import {CoinCardProps} from '../types';
+import {useRecoilState} from 'recoil';
+import {staredCoinAtom} from '../atoms';
+import {toggler} from '../utils/toggler';
 
 const CoinCard = (props: CoinCardProps) => {
   const [isStared, setStar] = useState(false);
+  const [staredCoin, setStaredCoin] = useRecoilState(staredCoinAtom);
+  
   const StarBookmarkIcon = useMemo(() => {
     if(isStared === true){
       return IMAGES.star
@@ -13,7 +18,16 @@ const CoinCard = (props: CoinCardProps) => {
       return IMAGES.unstar
     }
   }, [isStared]);
-  
+
+  const onClickStar = useCallback(() => {
+    setStar(!isStared);
+    setStaredCoin([...staredCoin, {
+      coinId: props.coinId,
+      coinName: props.coinName,
+      isStared: toggler(isStared)
+    }]);
+  }, [isStared, staredCoin]);
+
   return (
     <Container>
       <Link to={`/coins/${props.coinId}`}>
@@ -24,7 +38,7 @@ const CoinCard = (props: CoinCardProps) => {
           </CoinName>
         </Coin>
       </Link>
-      <BookmarkContainer onClick={() => setStar(!isStared)}>
+      <BookmarkContainer onClick={onClickStar}>
         <StarBookmark src={StarBookmarkIcon} />
       </BookmarkContainer>
     </Container>

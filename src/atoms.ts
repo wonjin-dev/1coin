@@ -1,12 +1,12 @@
 import {atom} from 'recoil';
-import {StaredCoin} from './types';
+import {CoinCardProps} from './types';
 
 export const darkModeAtom = atom({
   key: 'isDark',
   default: true
 });
 
-const initialStateStaredCoin: StaredCoin[] = [];
+const initialStateStaredCoin: CoinCardProps[] = [];
 
 export const staredCoinAtom = atom({
   key: 'isStar',

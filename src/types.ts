@@ -8,7 +8,8 @@ export interface LoaderProps {
 export interface CoinCardProps {
   coinId: string;
   coinName: string;
-  coinSymbol: string;
+  coinSymbol?: string;
+  isStared?: boolean;
 }
 
 export interface ChartProps {
@@ -30,7 +31,3 @@ export interface BtnProps{
   value?: string;
   onClick?: () => void;
 }
-
-export type StaredCoin = {
-  name: string;
-};
