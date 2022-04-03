@@ -24,6 +24,7 @@ const CoinCard = (props: CoinCardProps) => {
     setStaredCoin([...staredCoin, {
       coinId: props.coinId,
       coinName: props.coinName,
+      coinSymbol: props.coinSymbol,
       isStared: toggler(isStared)
     }]);
   }, [isStared, staredCoin]);

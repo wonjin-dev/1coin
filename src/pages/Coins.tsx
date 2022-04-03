@@ -1,23 +1,35 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect, useCallback, useMemo} from 'react';
 import styled from 'styled-components';
-import {useSetRecoilState} from 'recoil';
-import {darkModeAtom} from '../atoms';
+import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {darkModeAtom, staredCoinAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
 import {CoinListSchema} from '../api/schema/coinSchema';
 import {getCoinList} from '../api/coin';
 import CoinCard from '../components/CoinCard';
 import Loader from '../components/Loader';
+import { CoinCardProps } from '../types';
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
+  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);  
+  
+  const darkMode = useSetRecoilState(darkModeAtom)
+  const setDarkMode = () => darkMode((prev) => !prev);
+  
+  const staredCoins = useRecoilValue(staredCoinAtom);
+  const [filter, setFilter] = useState<boolean | undefined>(undefined);
+  const BookmarkButtonString = useMemo(() => {
+    if(filter === true) {
+	  return '전체 보기';
+    } else {
+	  return '북마크 된 코인 보기';
+    }
+  }, [filter]);
+
   const [target, setTarget] = useState<Element | null>(null);
   const [fetchIndex, setIndex] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);
-  const darkMode = useSetRecoilState(darkModeAtom)
-  const setDarkMode = () => darkMode((prev) => !prev);
-
   const getMoreCoins = useCallback(async() => {
   	setIsLoaded(true);
   	if (!timer) {
@@ -59,9 +71,10 @@ const Coins = () => {
 		  <Header>
 		    <Intro>{STRINGS.pjTitle}</Intro>
 		    <button onClick={setDarkMode}>DarkMode</button>
+		    <button onClick={() => setFilter(!filter)}>{BookmarkButtonString}</button>
 		  </Header>
           <Cards>
-	  	    {coinList.map((coin: CoinListSchema, i: number) => {
+	  	    {!filter && coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
 	  	        <CoinCard
 	  	          key={i}
@@ -70,7 +83,17 @@ const Coins = () => {
 	  	          coinSymbol={coin.symbol}
 	  	        />
               );
-	  	    })}
+		    })}
+		    {filter && staredCoins.map((coin: CoinCardProps, i: number) => {
+			  return (
+			    <CoinCard
+				  key={i}
+				  coinId={coin.coinId}
+				  coinName={coin.coinName}
+				  coinSymbol={coin.coinSymbol}
+			    />
+			  )
+		    })}
           </Cards>
 	  	</Container>
       ) : (
