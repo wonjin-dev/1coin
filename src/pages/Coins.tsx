@@ -4,11 +4,11 @@ import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {darkModeAtom, staredCoinAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
+import {CoinCardProps} from '../types';
 import {CoinListSchema} from '../api/schema/coinSchema';
 import {getCoinList} from '../api/coin';
 import CoinCard from '../components/CoinCard';
 import Loader from '../components/Loader';
-import { CoinCardProps } from '../types';
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
@@ -21,9 +21,9 @@ const Coins = () => {
   const [filter, setFilter] = useState<boolean | undefined>(undefined);
   const BookmarkButtonString = useMemo(() => {
     if(filter === true) {
-	  return '전체 보기';
+	  return STRINGS.seeAll;
     } else {
-	  return '북마크 된 코인 보기';
+	  return STRINGS.seeTheStars;
     }
   }, [filter]);
 
@@ -91,9 +91,11 @@ const Coins = () => {
 				  coinId={coin.coinId}
 				  coinName={coin.coinName}
 				  coinSymbol={coin.coinSymbol}
+				  isStared={coin.isStared}
 			    />
 			  )
 		    })}
+		    {staredCoins.length === 0 && <>{STRINGS.noStaredCoin}</>}
           </Cards>
 	  	</Container>
       ) : (
