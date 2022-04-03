@@ -5,7 +5,6 @@ import {IMAGES} from '../constants/images';
 import {CoinCardProps} from '../types';
 import {useRecoilState} from 'recoil';
 import {staredCoinAtom} from '../atoms';
-import {toggler} from '../utils/toggler';
 import {checkOverlap} from '../utils/checkOverlap';
 
 const CoinCard = (props: CoinCardProps) => {
@@ -21,19 +20,25 @@ const CoinCard = (props: CoinCardProps) => {
   }, [isStared]);
 
   const onClickStar = useCallback(() => {
-    setStar(!isStared);
     const overLap = checkOverlap({
       origin: staredCoin,
       new: props.coinName,
       key:'coinName'
     });
-    if(!overLap){
-      setStaredCoin([...staredCoin, {
-        coinId: props.coinId,
-        coinName: props.coinName,
-        coinSymbol: props.coinSymbol,
-        isStared: toggler(isStared)
-      }]);
+
+    if(isStared !== true){
+      setStar(true);
+      if(!overLap){
+        setStaredCoin([...staredCoin, {
+          coinId: props.coinId,
+          coinName: props.coinName,
+          coinSymbol: props.coinSymbol,
+          isStared: isStared
+        }]);
+      }
+    } else {
+      setStar(false);
+      setStaredCoin(staredCoin.filter(coin => coin.coinName !== props.coinName));
     }
   }, [isStared, staredCoin]);
 
