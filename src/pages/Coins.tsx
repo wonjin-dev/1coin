@@ -5,6 +5,7 @@ import {darkModeAtom, staredCoinAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
 import {CoinCardProps} from '../types';
+import {checkOverlap} from '../utils/checkOverlap';
 import {CoinListSchema} from '../api/schema/coinSchema';
 import {getCoinList} from '../api/coin';
 import CoinCard from '../components/CoinCard';
@@ -81,6 +82,11 @@ const Coins = () => {
 	  	          coinId={coin.id}
 	  	          coinName={coin.name}
 	  	          coinSymbol={coin.symbol}
+				  isStared={checkOverlap({
+			    	origin: staredCoins,
+			    	new: coin.id,
+			    	key: 'coinId'
+				  })}
 	  	        />
               );
 		    })}
