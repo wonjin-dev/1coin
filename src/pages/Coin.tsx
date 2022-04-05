@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {useQuery} from 'react-query';
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
 import {STRINGS} from '../constants/ko';
-import {CoinDetailsSchema, CoinTickerSchema} from '../api/schema/coinSchema';
+import {CoinDetailsSchema, CoinTickerSchema} from '../types';
 import {getCoinDetails, getCoinTickers} from '../api/coin';
 import {CoinPageRouteParams} from '../types';
 import Loader from '../components/Loader';

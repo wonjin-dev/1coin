@@ -6,7 +6,7 @@ import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
 import {CoinCardProps} from '../types';
 import {checkOverlap} from '../utils/checkOverlap';
-import {CoinListSchema} from '../api/schema/coinSchema';
+import {CoinListSchema} from '../types';
 import {getCoinList} from '../api/coin';
 import CoinCard from '../components/CoinCard';
 import Loader from '../components/Loader';
