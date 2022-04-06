@@ -4,33 +4,23 @@ import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {darkModeAtom, staredCoinAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
-import {CoinCardProps} from '../types';
-import {checkOverlap} from '../utils/checkOverlap';
-import {CoinListSchema} from '../types';
+import {CoinListSchema, CoinCardProps} from '../types';
 import {getCoinList} from '../api/coin';
+import {checkOverlap} from '../utils/checkOverlap';
 import CoinCard from '../components/CoinCard';
 import Loader from '../components/Loader';
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
-  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);  
-  
-  const darkMode = useSetRecoilState(darkModeAtom)
+  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);   
+  const darkMode = useSetRecoilState(darkModeAtom);
   const setDarkMode = () => darkMode((prev) => !prev);
-  
   const staredCoins = useRecoilValue(staredCoinAtom);
   const [filter, setFilter] = useState<boolean | undefined>(undefined);
-  const BookmarkButtonString = useMemo(() => {
-    if(filter === true) {
-	  return STRINGS.seeAll;
-    } else {
-	  return STRINGS.seeTheStars;
-    }
-  }, [filter]);
-
   const [target, setTarget] = useState<Element | null>(null);
   const [fetchIndex, setIndex] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
   const getMoreCoins = useCallback(async() => {
   	setIsLoaded(true);
   	if (!timer) {
@@ -41,8 +31,16 @@ const Coins = () => {
   	  	setIndex(fetchIndex => fetchIndex + 10);
   	  	setIsLoaded(false);
   	  }, 200);
-  	}
+    }
   }, [fetchIndex]);
+
+  const BookmarkButtonString = useMemo(() => {
+    if(filter === true) {
+	  return STRINGS.seeAll;
+    } else {
+	  return STRINGS.seeTheStars;
+    }
+  }, [filter]);
 
   useEffect(() => {
     getMoreCoins();
@@ -53,7 +51,7 @@ const Coins = () => {
   	  observer.unobserve(entry.target);
   	  await getMoreCoins();
   	  observer.observe(entry.target);
-  	}
+    }
   };
 
   useEffect(() => {
@@ -61,7 +59,8 @@ const Coins = () => {
   	if (target) {
   	  observer = new IntersectionObserver(onIntersect);
   	  observer.observe(target);
-  	}
+    }
+
   	return () => observer && observer.disconnect();
   }, [target, onIntersect]);
 

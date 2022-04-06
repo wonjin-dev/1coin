@@ -9,4 +9,4 @@ export const STRINGS = {
   seeTheStars: '스타 된 코인 보기',
   noStaredCoin: '스타 된 코인이 없습니다. 카드 옆 별표를 클릭해 스타해주세요 : )',
   seeAll: '전체 보기'
-}
+};

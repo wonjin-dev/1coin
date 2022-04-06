@@ -3,34 +3,34 @@ export interface LoaderProps {
   type: LoaderType;
   text?: string;
   img?: string;
-}
+};
 
 export interface CoinCardProps {
   coinId: string;
   coinName: string;
   coinSymbol: string;
   isStared?: boolean;
-}
+};
 
 export interface ChartProps {
   coinId?: string;
-}
+};
 
 export type CoinPageRouteParams = {
   coinId: string;
-}
+};
 
 export interface InputProps {
   type?: string
   name: string;
   value?: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 export interface BtnProps{
   value?: string;
   onClick?: () => void;
-}
+};
 
 export interface CoinChartSchema {
   open: number;
@@ -38,7 +38,7 @@ export interface CoinChartSchema {
   time_close: string;
   high: number;
   low: number;
-}
+};
 
 export interface CoinDetailsSchema {
   id: string;
@@ -46,13 +46,13 @@ export interface CoinDetailsSchema {
   symbol: string;
   rank: number;
   description: string;
-}
+};
 
 export interface CoinListSchema {
   id: string;
   name: string;
   symbol: string;
-}
+};
 
 export interface CoinTickerSchema {
   quotes: {
@@ -60,4 +60,4 @@ export interface CoinTickerSchema {
       price: number;
     };
   };
-}
+};
