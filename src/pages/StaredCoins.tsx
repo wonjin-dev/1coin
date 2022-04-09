@@ -4,7 +4,6 @@ import {useRecoilValue} from 'recoil';
 import {staredCoinAtom} from '../atoms';
 import {CoinCardProps} from '../types';
 import {STRINGS} from '../constants/ko';
-import Loader from '../components/Loader';
 import CoinCard from '../components/CoinCard';
 
 const StaredCoins = () => {
@@ -13,7 +12,9 @@ const StaredCoins = () => {
     <>
       {staredCoins.length > 0 ? (
         <Container>
-          <Link to={'/coins'}>{STRINGS.back}</Link>
+          <Header>
+            <Link to={'/coins'}>{STRINGS.back}</Link>
+          </Header>
           <Cards>
             {staredCoins.map((coin: CoinCardProps, i: number) => {
               return (
@@ -29,13 +30,20 @@ const StaredCoins = () => {
           </Cards>
         </Container>
       ) : (
-        <>
-          <Link to={'/coins'}>{STRINGS.back}</Link>
-          <Loader
-            type={'page'}
-            text={STRINGS.noStaredCoin}
-          />
-        </>
+        <Container>
+          <Header>
+            <Link to={'/coins'}>
+              <TextInLoader>
+                {STRINGS.back}
+              </TextInLoader>
+            </Link>
+          </Header>
+          <DefaultLoader>
+            <TextInLoader>
+              {STRINGS.noStaredCoin}
+            </TextInLoader>
+          </DefaultLoader>
+        </Container>
       )}
     </>
   ) ;
@@ -51,6 +59,12 @@ const Container = styled.div`
   }
 `;
 
+const Header = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+`;
+
 const Cards = styled.div`
   @media screen and (min-width: 1024px) {
 	display: grid;
@@ -58,4 +72,18 @@ const Cards = styled.div`
 	grid-gap: 20px;
 	margin: 0 10% 0 10%
   }
+`;
+
+const DefaultLoader = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 20px;
+  font-weight: 700;
+`;
+
+const TextInLoader = styled.span`
+  color: ${(props) => props.theme.textColor};
 `;
