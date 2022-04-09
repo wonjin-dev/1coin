@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import {useQuery} from 'react-query';
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
 import {STRINGS} from '../constants/ko';
-import {CoinDetailsSchema, CoinTickerSchema} from '../api/schema/coinSchema';
+import {CoinDetailsSchema, CoinTickerSchema, CoinPageRouteParams} from '../types';
 import {getCoinDetails, getCoinTickers} from '../api/coin';
-import {CoinPageRouteParams} from '../types';
 import Loader from '../components/Loader';
 import Chart from '../components/Chart';
 
@@ -31,49 +30,46 @@ const Coin = () => {
   
   return (
     <>
-      {loading
-        ? (
-          <Loader
-            type ='page'
-            text={STRINGS.loadCoinDetails}
-          />
-        )
-        : (
-          <Container>
-            <Header>
-              <BackBtnContainer>
-                <Link to="/coins">
-                  <IoIosArrowDropleftCircle />
-                </Link>
-              </BackBtnContainer>
-              <Title>{infoData?.name}</Title>
-            </Header>
-            <DetailsCotainer>
-              <Details>
-                <span>{STRINGS.rank}</span>
-                <span>{infoData?.rank}</span>
-              </Details>
-              <Details>
-                <span>{STRINGS.price}</span>
-                <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
-              </Details>
-            </DetailsCotainer>
-            <DetailsCotainer>
-              <Description>
-                {infoData?.description
-                  ? infoData?.description.length > 300
-                    ? `${infoData?.description.slice(0, 300)}  . . .`
-                    : infoData?.description
-                  : null}
-              </Description>
-            </DetailsCotainer>
-            <Chart coinId={coinId} />
-          </Container>
-        )
-      }
+      {loading ? (
+        <Loader
+          type ='page'
+          text={STRINGS.loadCoinDetails}
+        />
+      ) : (
+        <Container>
+          <Header>
+            <BackBtnContainer>
+              <Link to="/coins">
+                <IoIosArrowDropleftCircle />
+              </Link>
+            </BackBtnContainer>
+            <Title>{infoData?.name}</Title>
+          </Header>
+          <DetailsCotainer>
+            <Details>
+              <span>{STRINGS.rank}</span>
+              <span>{infoData?.rank}</span>
+            </Details>
+            <Details>
+              <span>{STRINGS.price}</span>
+              <span>${tickersData?.quotes.USD.price.toFixed(1)}</span>
+            </Details>
+          </DetailsCotainer>
+          <DetailsCotainer>
+            <Description>
+              {infoData?.description
+                ? infoData?.description.length > 300
+                  ? `${infoData?.description.slice(0, 300)}  . . .`
+                  : infoData?.description
+                : null}
+            </Description>
+          </DetailsCotainer>
+          <Chart coinId={coinId} />
+        </Container>
+      )}
     </>
   );
-}
+};
 
 export default Coin;
 
@@ -103,8 +99,8 @@ const Title = styled.h1`
 const DetailsCotainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
   margin: 30px 0px;
+  padding: 10px 20px;
   background-color: ${(props) => props.theme.bgColor};
   border-radius: 10px;
 `;

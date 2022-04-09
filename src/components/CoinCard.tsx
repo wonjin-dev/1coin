@@ -1,9 +1,9 @@
-import {useCallback, useMemo, useState} from 'react';
+import {useState, useCallback, useMemo} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {useRecoilState} from 'recoil';
 import {IMAGES} from '../constants/images';
 import {CoinCardProps} from '../types';
-import {useRecoilState} from 'recoil';
 import {staredCoinAtom} from '../atoms';
 import {checkOverlap} from '../utils/checkOverlap';
 
@@ -13,9 +13,9 @@ const CoinCard = (props: CoinCardProps) => {
   
   const StarBookmarkIcon = useMemo(() => {
     if(isStared === true){
-      return IMAGES.star
+      return IMAGES.star;
     } else {
-      return IMAGES.unstar
+      return IMAGES.unstar;
     }
   }, [isStared, staredCoin]);
 
@@ -56,8 +56,8 @@ const CoinCard = (props: CoinCardProps) => {
         <StarBookmark src={StarBookmarkIcon} />
       </BookmarkContainer>
     </Container>
-  )
-}
+  );
+};
 
 export default CoinCard;
 
@@ -68,7 +68,7 @@ const Container = styled.div`
   padding: 30px;
   border: 1px solid;
   border-radius: 15px;
-`
+`;
 
 const Coin = styled.div`
   display: flex;
@@ -87,7 +87,7 @@ const CoinName = styled.h1`
 
 const BookmarkContainer = styled.div`
   display: flex;
-`
+`;
 
 const StarBookmark = styled.img`
   width: 40px;

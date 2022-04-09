@@ -10,8 +10,8 @@ const PublicInput = (props: InputProps) => {
       value={props.value}
       onChange={props.onChange}
     />
-  )
-}
+  );
+};
 
 export default PublicInput;
 
@@ -23,4 +23,4 @@ const StyledInput = styled.input`
   border-radius: 10px;
   font-size: 40px;
   margin-bottom: 10px;
-`
+`;

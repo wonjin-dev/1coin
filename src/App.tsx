@@ -6,7 +6,7 @@ import {darkTheme, lightTheme} from './theme';
 import {darkModeAtom} from './atoms';
 
 const App = () => {
-  const isDark = useRecoilValue(darkModeAtom)
+  const isDark = useRecoilValue(darkModeAtom);
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
@@ -14,7 +14,7 @@ const App = () => {
         <Router />
       </ThemeProvider>
     </>
-  )
-}
+  );
+};
 
 export default App;

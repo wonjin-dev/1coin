@@ -1,36 +1,34 @@
 import {useState, useEffect, useCallback, useMemo} from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useRecoilState, useRecoilValue} from 'recoil';
 import {darkModeAtom, staredCoinAtom} from '../atoms';
 import {STRINGS} from '../constants/ko';
 import {IMAGES} from '../constants/images';
-import {CoinCardProps} from '../types';
-import {checkOverlap} from '../utils/checkOverlap';
-import {CoinListSchema} from '../api/schema/coinSchema';
+import {CoinListSchema} from '../types';
 import {getCoinList} from '../api/coin';
+import {checkOverlap} from '../utils/checkOverlap';
 import CoinCard from '../components/CoinCard';
 import Loader from '../components/Loader';
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {
-  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);  
-  
-  const darkMode = useSetRecoilState(darkModeAtom)
-  const setDarkMode = () => darkMode((prev) => !prev);
-  
+  const [coinList, setCoinList] = useState<CoinListSchema[]>([]);
+  const [darkMode, setDarkMode] = useRecoilState(darkModeAtom);
   const staredCoins = useRecoilValue(staredCoinAtom);
   const [filter, setFilter] = useState<boolean | undefined>(undefined);
-  const BookmarkButtonString = useMemo(() => {
-    if(filter === true) {
-	  return STRINGS.seeAll;
-    } else {
-	  return STRINGS.seeTheStars;
-    }
-  }, [filter]);
-
   const [target, setTarget] = useState<Element | null>(null);
   const [fetchIndex, setIndex] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
+  const themeMode = useMemo(() => {
+    if(darkMode === true) {
+	  return STRINGS.ligthThme;
+    } else {
+	  return STRINGS.darkTheme;
+    }
+  }, [darkMode]);
+
   const getMoreCoins = useCallback(async() => {
   	setIsLoaded(true);
   	if (!timer) {
@@ -41,8 +39,16 @@ const Coins = () => {
   	  	setIndex(fetchIndex => fetchIndex + 10);
   	  	setIsLoaded(false);
   	  }, 200);
-  	}
+    }
   }, [fetchIndex]);
+
+  const BookmarkButtonString = useMemo(() => {
+    if(filter === true) {
+	  return STRINGS.seeAll;
+    } else {
+	  return STRINGS.seeTheStars;
+    }
+  }, [filter]);
 
   useEffect(() => {
     getMoreCoins();
@@ -53,7 +59,7 @@ const Coins = () => {
   	  observer.unobserve(entry.target);
   	  await getMoreCoins();
   	  observer.observe(entry.target);
-  	}
+    }
   };
 
   useEffect(() => {
@@ -61,7 +67,8 @@ const Coins = () => {
   	if (target) {
   	  observer = new IntersectionObserver(onIntersect);
   	  observer.observe(target);
-  	}
+    }
+
   	return () => observer && observer.disconnect();
   }, [target, onIntersect]);
 
@@ -71,8 +78,10 @@ const Coins = () => {
 	  	<Container>
 		  <Header>
 		    <Intro>{STRINGS.pjTitle}</Intro>
-		    <button onClick={setDarkMode}>DarkMode</button>
-		    <button onClick={() => setFilter(!filter)}>{BookmarkButtonString}</button>
+		    <button onClick={() => setDarkMode(!darkMode)}>{themeMode}</button>
+            <Link to={'/coins/stared'}>
+		      <button onClick={() => setFilter(!filter)}>{BookmarkButtonString}</button>
+            </Link>
 		  </Header>
           <Cards>
 	  	    {!filter && coinList.map((coin: CoinListSchema, i: number) => {
@@ -90,18 +99,6 @@ const Coins = () => {
 	  	        />
               );
 		    })}
-		    {filter && staredCoins.map((coin: CoinCardProps, i: number) => {
-			  return (
-			    <CoinCard
-				  key={i}
-				  coinId={coin.coinId}
-				  coinName={coin.coinName}
-				  coinSymbol={coin.coinSymbol}
-				  isStared={coin.isStared}
-			    />
-			  )
-		    })}
-		    {staredCoins.length === 0 && <>{STRINGS.noStaredCoin}</>}
           </Cards>
 	  	</Container>
       ) : (

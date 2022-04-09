@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Coins from './pages/Coins';
+import StaredCoins from './pages/StaredCoins';
 import Coin from './pages/Coin';
 
 const Router = () => {
@@ -7,11 +8,12 @@ const Router = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/coins/:coinId" element={<Coin />} />
+        <Route path="/coins/stared" element={<StaredCoins />} />
         <Route path="/coins" element={<Coins />} />
         <Route path="/" element={<Coins />} />
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default Router;
