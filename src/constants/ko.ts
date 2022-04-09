@@ -8,5 +8,7 @@ export const STRINGS = {
   seeChart: '차트보기',
   seeTheStars: '스타 된 코인 보기',
   noStaredCoin: '스타 된 코인이 없습니다. 카드 옆 별표를 클릭해 스타해주세요 : )',
-  seeAll: '전체 보기'
+  seeAll: '전체 보기',
+  darkTheme: '어두운 테마',
+  ligthThme: '밝은 테마'
 };
