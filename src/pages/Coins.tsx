@@ -23,9 +23,9 @@ const Coins = () => {
 
   const themeMode = useMemo(() => {
     if(darkMode === true) {
-	  return STRINGS.ligthThme;
+	  return IMAGES.lightMode;
     } else {
-	  return STRINGS.darkTheme;
+	  return IMAGES.darkMode;
     }
   }, [darkMode]);
 
@@ -41,14 +41,6 @@ const Coins = () => {
   	  }, 200);
     }
   }, [fetchIndex]);
-
-  const BookmarkButtonString = useMemo(() => {
-    if(filter === true) {
-	  return STRINGS.seeAll;
-    } else {
-	  return STRINGS.seeTheStars;
-    }
-  }, [filter]);
 
   useEffect(() => {
     getMoreCoins();
@@ -78,9 +70,11 @@ const Coins = () => {
 	  	<Container>
 		  <Header>
 		    <Intro>{STRINGS.pjTitle}</Intro>
-		    <button onClick={() => setDarkMode(!darkMode)}>{themeMode}</button>
+		    <ThemeButton onClick={() => setDarkMode(!darkMode)}>
+			  <ThemeToggleImage src={themeMode} />
+		    </ThemeButton>
             <Link to={'/coins/stared'}>
-		      <button onClick={() => setFilter(!filter)}>{BookmarkButtonString}</button>
+		      <button onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</button>
             </Link>
 		  </Header>
           <Cards>
@@ -146,3 +140,11 @@ const Header = styled.div`
 const Intro = styled.h1`
   color: ${(props) => props.theme.textColor};
 `;
+
+const ThemeButton = styled.button`
+`;
+
+const ThemeToggleImage = styled.img`
+  width: 40px;
+  height: 40px;
+`
