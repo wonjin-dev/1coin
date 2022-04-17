@@ -74,7 +74,7 @@ const Coins = () => {
 			  <ThemeToggleImage src={themeMode} />
 		    </ThemeButton>
             <Link to={'/coins/stared'}>
-		      <button onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</button>
+		      <FilterBtn onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</FilterBtn>
             </Link>
 		  </Header>
           <Cards>
@@ -101,13 +101,13 @@ const Coins = () => {
 		  text={STRINGS.loadCoinList}
 	  	/>
       )}
-	  <div ref={setTarget}>
+	  <InfiniteObserver ref={setTarget}>
         {isLoaded && 
 		  <Loader
 		    type="spin"
 		    img={IMAGES.coin}
 		  />}
-	  </div>
+	  </InfiniteObserver>
     </>
   );
 };
@@ -147,4 +147,10 @@ const ThemeButton = styled.button`
 const ThemeToggleImage = styled.img`
   width: 40px;
   height: 40px;
-`
+`;
+
+const FilterBtn = styled.button`
+`;
+
+const InfiniteObserver = styled.div`
+`;

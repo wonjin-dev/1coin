@@ -46,7 +46,7 @@ const StaredCoins = () => {
         </Container>
       )}
     </>
-  ) ;
+  );
 };
 
 export default StaredCoins;
