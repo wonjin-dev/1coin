@@ -68,15 +68,17 @@ const Coins = () => {
     <>
 	  {coinList.length > 0 ? (
 	  	<Container>
+		  <ThemeButton onClick={() => setDarkMode(!darkMode)}>
+		    <ThemeToggleImage src={themeMode} />
+		  </ThemeButton>
 		  <Header>
 		    <Intro>{STRINGS.pjTitle}</Intro>
-		    <ThemeButton onClick={() => setDarkMode(!darkMode)}>
-			  <ThemeToggleImage src={themeMode} />
-		    </ThemeButton>
+		  </Header>
+		  <Subtitle>
             <Link to={'/coins/stared'}>
 		      <FilterBtn onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</FilterBtn>
             </Link>
-		  </Header>
+		  </Subtitle>
           <Cards>
 	  	    {!filter && coinList.map((coin: CoinListSchema, i: number) => {
 	  	      return (
@@ -134,6 +136,7 @@ const Cards = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 40px;
 `;
 
@@ -149,7 +152,19 @@ const ThemeToggleImage = styled.img`
   height: 40px;
 `;
 
+const Subtitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+`
+
 const FilterBtn = styled.button`
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
 `;
 
 const InfiniteObserver = styled.div`
