@@ -142,9 +142,14 @@ const Header = styled.div`
 
 const Intro = styled.h1`
   color: ${(props) => props.theme.textColor};
+  font-size: 48px;
 `;
 
 const ThemeButton = styled.button`
+  padding-top: 20px;
+  padding-left: 20px;
+  background-color: transparent;
+  border: none;
 `;
 
 const ThemeToggleImage = styled.img`
@@ -157,7 +162,6 @@ const Subtitle = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
-  
 `
 
 const FilterBtn = styled.button`
@@ -165,6 +169,7 @@ const FilterBtn = styled.button`
   color: white;
   border: 1px solid white;
   border-radius: 10px;
+  padding: 6px;
 `;
 
 const InfiniteObserver = styled.div`
