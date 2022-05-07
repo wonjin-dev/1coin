@@ -1,5 +1,5 @@
 import {render} from '@testing-library/react';
-import {CoinCardProps} from '../../../types';
+import {CoinCardProps} from '../../../types/props';
 import CoinCard from '../components/CoinCard';
 
 const getCoinCardComponent = (props: CoinCardProps) => {

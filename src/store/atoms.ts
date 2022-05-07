@@ -1,5 +1,5 @@
 import {atom} from 'recoil';
-import {CoinCardProps} from './types';
+import {CoinCardProps} from '../types/props';
 
 export const darkModeAtom = atom({
   key: 'isDark',

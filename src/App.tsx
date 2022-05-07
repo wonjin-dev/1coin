@@ -1,9 +1,9 @@
 import Router from './Router';
 import {ThemeProvider} from 'styled-components';
 import {useRecoilValue} from 'recoil';
-import {GlobalStyle} from './GlobalStyle';
-import {darkTheme, lightTheme} from './theme';
-import {darkModeAtom} from './atoms';
+import {GlobalStyle} from './styles/GlobalStyle';
+import {darkTheme, lightTheme} from './styles/theme';
+import {darkModeAtom} from './store/atoms';
 
 const App = () => {
   const isDark = useRecoilValue(darkModeAtom);

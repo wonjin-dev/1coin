@@ -1,7 +1,7 @@
 const RegisterPage = () => {
-    return (
-      <></>
-    );
-  };
+  return (
+    <></>
+  );
+};
   
-  export default RegisterPage;
+export default RegisterPage;

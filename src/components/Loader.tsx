@@ -1,5 +1,11 @@
 import styled, {keyframes} from 'styled-components';
-import {LoaderProps} from '../types';
+
+type LoaderType = 'spin' | 'page';
+interface LoaderProps {
+  type: LoaderType;
+  text?: string;
+  img?: string;
+}
 
 const Loader = (props: LoaderProps) => {
   return (

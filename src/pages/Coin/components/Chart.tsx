@@ -2,10 +2,21 @@ import ApexChart from 'react-apexcharts';
 import {useQuery} from 'react-query';
 import {useRecoilValue} from 'recoil';
 import {IMAGES} from '../../../constants/images';
-import {CoinChartSchema, ChartProps} from '../../../types';
 import {getCoinChartData} from '../../../api/coin';
-import {darkModeAtom} from '../../../atoms';
+import {darkModeAtom} from '../../../store/atoms';
 import Loader from '../../../components/Loader';
+
+interface ChartProps {
+  coinId?: string;
+}
+
+interface CoinChartSchema {
+  open: number;
+  close: number;
+  time_close: string;
+  high: number;
+  low: number;
+}
 
 const Chart = (props: ChartProps) => {
   const isDarkMode = useRecoilValue(darkModeAtom);

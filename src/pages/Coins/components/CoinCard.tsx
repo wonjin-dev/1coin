@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {useRecoilState} from 'recoil';
 import {IMAGES} from '../../../constants/images';
-import {CoinCardProps} from '../../../types';
-import {staredCoinAtom} from '../../../atoms';
+import {CoinCardProps} from '../../../types/props';
+import {staredCoinAtom} from '../../../store/atoms';
 import {checkOverlap} from '../../../utils/checkOverlap';
 
 const CoinCard = (props: CoinCardProps) => {

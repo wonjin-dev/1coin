@@ -1,7 +1,7 @@
 const LoginPage = () => {
-    return (
-      <></>
-    );
-  };
-  
-  export default LoginPage;
+  return (
+    <></>
+  );
+};
+
+export default LoginPage;
