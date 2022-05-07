@@ -13,6 +13,8 @@
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469221-20b4777f-0cef-46ee-95d7-ac0dffa02962.png">
 </div>
 
+<hr>
+
 ## _Trouble shooting_
 
 **_1. 빌드 오류_**
@@ -64,6 +66,8 @@ Cannot find module 'react-dom/client' from 'node_modules/@testing-library/react/
 
 **_2. 폴더 구조 변경_**
 > `Repository 디자인 패턴` 적용 & 기존 코드 구조 점진적 리팩토링 시작
+
+**_3. ligth mode 디자인 변경_**
 
 <br>
 

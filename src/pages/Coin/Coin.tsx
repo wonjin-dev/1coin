@@ -101,7 +101,7 @@ const DetailsCotainer = styled.div`
   justify-content: space-between;
   margin: 30px 0px;
   padding: 10px 20px;
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.cardBgColor};
   border-radius: 10px;
 `;
 
