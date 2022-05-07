@@ -1,10 +1,10 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {useRecoilValue} from 'recoil';
-import {staredCoinAtom} from '../atoms';
-import {CoinCardProps} from '../types';
-import {STRINGS} from '../constants/ko';
-import CoinCard from '../components/CoinCard';
+import {staredCoinAtom} from '../../atoms';
+import {CoinCardProps} from '../../types';
+import {STRINGS} from '../../constants/ko';
+import CoinCard from './components/CoinCard';
 
 const StaredCoins = () => {
   const staredCoins = useRecoilValue(staredCoinAtom);

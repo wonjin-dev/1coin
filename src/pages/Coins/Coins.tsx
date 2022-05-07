@@ -2,14 +2,15 @@ import {useState, useEffect, useCallback, useMemo} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {useRecoilState, useRecoilValue} from 'recoil';
-import {darkModeAtom, staredCoinAtom} from '../atoms';
-import {STRINGS} from '../constants/ko';
-import {IMAGES} from '../constants/images';
-import {CoinListSchema} from '../types';
-import {getCoinList} from '../api/coin';
-import {checkOverlap} from '../utils/checkOverlap';
-import CoinCard from '../components/CoinCard';
-import Loader from '../components/Loader';
+import {darkModeAtom, staredCoinAtom} from '../../atoms';
+import {STRINGS} from '../../constants/ko';
+import {IMAGES} from '../../constants/images';
+import {CoinListSchema} from '../../types';
+import {getCoinList} from '../../api/coin';
+import {checkOverlap} from '../../utils/checkOverlap';
+import CoinCard from './components/CoinCard';
+import Loader from '../../components/Loader';
+
 let timer: NodeJS.Timeout | null;
 
 const Coins = () => {

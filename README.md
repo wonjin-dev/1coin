@@ -62,6 +62,9 @@ Cannot find module 'react-dom/client' from 'node_modules/@testing-library/react/
 **_1. 테스트 코드 셋업 시작_**
 > `TypeScript` & `@testing-library` & `Jest`
 
+**_2. 폴더 구조 변경_**
+> `Repository 디자인 패턴` 적용 & 기존 코드 구조 점진적 리팩토링 시작
+
 <br>
 
 **_`22/04/25`_**<br>

@@ -2,11 +2,11 @@ import {Link, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import {useQuery} from 'react-query';
 import {IoIosArrowDropleftCircle} from 'react-icons/io';
-import {STRINGS} from '../constants/ko';
-import {CoinDetailsSchema, CoinTickerSchema, CoinPageRouteParams} from '../types';
-import {getCoinDetails, getCoinTickers} from '../api/coin';
-import Loader from '../components/Loader';
-import Chart from '../components/Chart';
+import {STRINGS} from '../../constants/ko';
+import {CoinDetailsSchema, CoinTickerSchema, CoinPageRouteParams} from '../../types';
+import {getCoinDetails, getCoinTickers} from '../../api/coin';
+import Loader from '../../components/Loader';
+import Chart from './components/Chart';
 
 const Coin = () => {
   const {coinId} = useParams<CoinPageRouteParams>();

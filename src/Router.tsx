@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Coins from './pages/Coins';
-import StaredCoins from './pages/StaredCoins';
-import Coin from './pages/Coin';
+import Coins from './pages/Coins/Coins';
+import StaredCoins from './pages/Coins/StaredCoins';
+import Coin from './pages/Coin/Coin';
 
 const Router = () => {
   return (
