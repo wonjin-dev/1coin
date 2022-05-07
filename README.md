@@ -13,8 +13,6 @@
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469221-20b4777f-0cef-46ee-95d7-ac0dffa02962.png">
 </div>
 
-<hr>
-
 ## _Trouble shooting_
 
 **_1. 빌드 오류_**
@@ -56,12 +54,13 @@ Cannot find module 'react-dom/client' from 'node_modules/@testing-library/react/
 > `CAUSE`: `@testing-library/react`가 리액트 최신 버전을 테스트하기 때문이다 <br>(최신: 18++, 적용: 17++)<br>
 > `SOLUTION`: `@testing-library/react` 버전 12++로 다운 그레이드 (최신 13++)
 
-<br><hr><br>
+<hr>
 
 ## _Dev-Log_
 
 **_`22/05/08`_**<br>
 **_1. 테스트 코드 셋업 시작_**
+> `TypeScript` & `@testing-library` & `Jest`
 
 <br>
 

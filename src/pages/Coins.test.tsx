@@ -2,7 +2,7 @@ import * as TEST from '@testing-library/react';
 import {CoinCardProps} from '../types';
 import CoinCard from '../components/CoinCard';
 
-const getCoinCardComponent = (props) => {
+const getCoinCardComponent = (props: CoinCardProps) => {
   return <CoinCard {...props} />;
 }
 
