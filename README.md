@@ -6,15 +6,11 @@
 ## _Tech Stack_
 
 <div>
-  <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/167265000-dc8c82a3-f793-4fce-9719-3b8d02586377.png">
-  <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/167265020-2d712b4a-de53-46c3-8d22-7f3abd190fb0.jpg">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/146652190-f113fe0f-6432-481e-9c9b-b1869ddc67c7.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/146652259-5c3b7a73-854c-40cc-bedd-f9a36f7ba664.png">
-  <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469158-5150ccf7-c857-4fa6-90ee-4d22fc4ffd6c.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/159604709-2324406b-7861-48fb-a455-9769ed0b1073.jpeg">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469221-20b4777f-0cef-46ee-95d7-ac0dffa02962.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/167264925-4a89724e-52d5-4470-8cb4-380084786740.png">
-  <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/167264971-3ee8778a-0b1d-4b50-9dbe-172033c5decd.png">
 </div>
 
 <hr>
