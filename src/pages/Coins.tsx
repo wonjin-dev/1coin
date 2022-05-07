@@ -66,50 +66,51 @@ const Coins = () => {
 
   return (
     <>
-	  {coinList.length > 0 ? (
-	  	<Container>
-		  <ThemeButton onClick={() => setDarkMode(!darkMode)}>
-		    <ThemeToggleImage src={themeMode} />
-		  </ThemeButton>
-		  <Header>
-		    <Intro>{STRINGS.pjTitle}</Intro>
-		  </Header>
-		  <Subtitle>
+	    {coinList.length > 0 ? (
+	    	<Container>
+		      <ThemeButton onClick={() => setDarkMode(!darkMode)}>
+		        <ThemeToggleImage src={themeMode} />
+		      </ThemeButton>
+		      <Header>
+		        <Intro>{STRINGS.pjTitle}</Intro>
+		      </Header>
+		      <Subtitle>
             <Link to={'/coins/stared'}>
-		      <FilterBtn onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</FilterBtn>
+		          <FilterBtn onClick={() => setFilter(!filter)}>{STRINGS.seeTheStars}</FilterBtn>
             </Link>
-		  </Subtitle>
+		      </Subtitle>
           <Cards>
-	  	    {!filter && coinList.map((coin: CoinListSchema, i: number) => {
-	  	      return (
-	  	        <CoinCard
-	  	          key={i}
-	  	          coinId={coin.id}
-	  	          coinName={coin.name}
-	  	          coinSymbol={coin.symbol}
-				  isStared={checkOverlap({
-			    	origin: staredCoins,
-			    	new: coin.id,
-			    	key: 'coinId'
-				  })}
-	  	        />
+	    	    {!filter && coinList.map((coin: CoinListSchema, i: number) => {
+	    	      return (
+	    	        <CoinCard
+	    	          key={i}
+	    	          coinId={coin.id}
+	    	          coinName={coin.name}
+	    	          coinSymbol={coin.symbol}
+		  		        isStared={checkOverlap({
+		  	    	      origin: staredCoins,
+		  	    	      new: coin.id,
+		  	    	      key: 'coinId'
+		  		        })}
+	    	        />
               );
-		    })}
+		        })}
           </Cards>
-	  	</Container>
+	    	</Container>
       ) : (
-	  	<Loader
-		  type={'page'}
-		  text={STRINGS.loadCoinList}
-	  	/>
+	    	<Loader
+		      type={'page'}
+		      text={STRINGS.loadCoinList}
+	    	/>
       )}
-	  <InfiniteObserver ref={setTarget}>
+	    <InfiniteObserver ref={setTarget}>
         {isLoaded && 
-		  <Loader
-		    type="spin"
-		    img={IMAGES.coin}
-		  />}
-	  </InfiniteObserver>
+		      <Loader
+		        type="spin"
+		        img={IMAGES.coin}
+		      />
+        }
+	    </InfiniteObserver>
     </>
   );
 };
