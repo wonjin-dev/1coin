@@ -1,6 +1,7 @@
 const LoginPage = () => {
   return (
-    <></>
+    <>
+    </>
   );
 };
 

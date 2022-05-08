@@ -1,6 +1,7 @@
 const RegisterPage = () => {
   return (
-    <></>
+    <>
+    </>
   );
 };
   
