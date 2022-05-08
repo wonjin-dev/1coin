@@ -1,5 +1,5 @@
 import {render} from '@testing-library/react';
-import { RecoilRoot } from 'recoil';
+import {RecoilRoot} from 'recoil';
 import {CoinCardProps} from '../../../types/props';
 import CoinCard from '../components/CoinCard';
 
