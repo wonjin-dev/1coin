@@ -1,4 +1,5 @@
 import {render} from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 import {CoinCardProps} from '../../../types/props';
 import CoinCard from '../components/CoinCard';
 
@@ -15,9 +16,8 @@ describe('[COINS 페이지 렌더링]', () => {
   };
   let component = getCoinCardComponent(props);
 
-  // TODO:: Recoil Root 안에 포함되어야 한다고 오류 발생
   test('render', () => {
-    const rendered = render(component);
+    const rendered = render(<RecoilRoot>component</RecoilRoot>);
     expect(rendered).toBeTruthy();
   });
 });
