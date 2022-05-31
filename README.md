@@ -38,4 +38,4 @@ TypeError: MiniCssExtractPlugin is not a constructor
 > `SOLUTION`: timer를 이용해 Throttling을 설정하여 해결
 <hr>
 
-<p style="font-size: xx-large"><a href="https://github.com/wonjin-dev/1coin/blob/master/dev-log.md">Dev-Log</a></h1>
+# <a href="https://github.com/wonjin-dev/1coin/blob/master/dev-log.md">Dev-Log</a>
