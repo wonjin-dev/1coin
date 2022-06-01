@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/1coin/static/js/main.bb9da8fb.js",
+    "static/media/sun.png": "/1coin/static/media/sun.92ac9b80987fd3fb45a9.png",
+    "static/media/star.png": "/1coin/static/media/star.922b80416585719e269c.png",
+    "static/media/coin.png": "/1coin/static/media/coin.dba5ad35b9a97313e2c4.png",
+    "static/media/unstar.png": "/1coin/static/media/unstar.34f76755001bb9a70f3a.png",
+    "index.html": "/1coin/index.html",
+    "main.bb9da8fb.js.map": "/1coin/static/js/main.bb9da8fb.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.bb9da8fb.js"
+  ]
+}
